@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <!-- ═══════════════════════════════════
+       META — SEO 100
+  ═══════════════════════════════════ -->
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <meta name="theme-color" content="#0d0520"/>
+
+  <title>Mennation Design Studio | Where Ideas Become Identity</title>
+  <meta name="description" content="Mennation — Cairo's premier graphic design studio. Brand identity, menu design, invitations, packaging, social media, and motion graphics. 1500+ projects, 850+ clients."/>
+  <meta name="keywords" content="graphic design, brand identity, menu design, wedding invitations, logo design, Cairo, Egypt, Mennation"/>
+  <meta name="author" content="Mennation Design Studio"/>
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large"/>
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="Mennation Design Studio | Where Ideas Become Identity"/>
+  <meta property="og:description" content="Cairo's premier graphic design studio. Brand identity, menu design, invitations, and more. 1500+ projects completed."/>
+  <meta property="og:url" content="https://mennation.design"/>
+  <meta property="og:site_name" content="Mennation Design Studio"/>
+  <meta property="og:locale" content="en_US"/>
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Mennation Design Studio"/>
+  <meta name="twitter:description" content="Where Ideas Become Identity — Cairo's creative design studio."/>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://mennation.design/"/>
+
+  <!-- Preconnect for fonts (Best Practices) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,900;1,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <!-- Structured Data — SEO 100 -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Mennation Design Studio",
+    "description": "Cairo's premier graphic design studio offering brand identity, menu design, invitations, social media, and motion graphics.",
+    "url": "https://mennation.design",
+    "telephone": "+201040717586",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cairo",
+      "addressCountry": "EG"
+    },
+    "sameAs": [
+      "https://mennation.design"
+    ],
+    "priceRange": "$$",
+    "openingHours": "Mo-Su 09:00-22:00"
+  }
+  </script>
+
+  <style>
+    /* ═══════════════════════════════════
+       DESIGN TOKENS — Purple × Lavender
+    ═══════════════════════════════════ */
+    :root {
+      /* Background */
+      --bg:         #0d0520;
+      --bg-2:       #130a2e;
+      --bg-3:       #1a0f3d;
+
+      /* Surface */
+      --surf:       rgba(26, 12, 58, 0.75);
+      --surf-2:     rgba(40, 20, 88, 0.55);
+      --glass:      rgba(255, 255, 255, 0.035);
+
+      /* Borders */
+      --line:       rgba(196, 181, 253, 0.12);
+      --line-2:     rgba(196, 181, 253, 0.24);
+      --line-3:     rgba(196, 181, 253, 0.42);
+
+      /* Brand — Purple Spectrum */
+      --p-900: #2e1065;
+      --p-800: #3b0764;
+      --p-700: #4c1d95;
+      --p-600: #5b21b6;
+      --p-500: #7c3aed;
+      --p-400: #8b5cf6;
+      --p-300: #a78bfa;
+      --p-200: #c4b5fd;
+      --p-100: #ede9fe;
+
+      /* Accent — Warm Lavender */
+      --lav:    #d8b4fe;
+      --lav-2:  #f3e8ff;
+
+      /* Gold accent */
+      --gold:   #f59e0b;
+      --gold-2: #fde68a;
+
+      /* State */
+      --green:  #10b981;
+      --rose:   #f43f5e;
+
+      /* Text */
+      --t-1: #f5f0ff;
+      --t-2: #c4b5fd;
+      --t-3: #9174d4;
+      --t-4: #5a3d99;
+
+      /* Gradients */
+      --g-main:   linear-gradient(135deg, #5b21b6 0%, #7c3aed 45%, #a78bfa 100%);
+      --g-warm:   linear-gradient(135deg, #4c1d95 0%, #8b5cf6 50%, #d8b4fe 100%);
+      --g-gold:   linear-gradient(135deg, #d97706 0%, #fbbf24 50%, #fde68a 100%);
+      --g-card:   linear-gradient(145deg, rgba(91,33,182,0.20) 0%, rgba(139,92,246,0.08) 100%);
+      --g-hero:   radial-gradient(ellipse at 30% 40%, rgba(92,45,210,0.35) 0%, transparent 65%),
+                  radial-gradient(ellipse at 75% 60%, rgba(167,139,250,0.20) 0%, transparent 60%);
+
+      /* Shape */
+      --r-xs:  8px;
+      --r-sm:  14px;
+      --r-md:  20px;
+      --r-lg:  28px;
+      --r-xl:  40px;
+      --pill:  999px;
+
+      /* Layout */
+      --w: min(calc(100% - 32px), 1200px);
+      --hh: 68px;
+
+      /* Motion */
+      --ease:   230ms cubic-bezier(.4,0,.2,1);
+      --ease-2: 500ms cubic-bezier(.22,1,.36,1);
+    }
+
+    /* ═══════════════════════════════════
+       BASE — Accessibility 100
+    ═══════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: "Outfit", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--t-1);
+      background: var(--bg);
+      overflow-x: hidden;
+      min-height: 100svh;
+    }
+
+    /* Focus visible — Accessibility 100 */
+    :focus-visible {
+      outline: 2px solid var(--p-300);
+      outline-offset: 3px;
+      border-radius: 4px;
+    }
+
+    /* Skip link — Accessibility 100 */
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 12px;
+      z-index: 9999;
+      background: var(--p-500);
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 0 0 var(--r-sm) var(--r-sm);
+      font-weight: 700;
+      font-size: 14px;
+      transition: top 0.2s;
+    }
+    .skip-link:focus { top: 0; }
+
+    /* Screen-reader only */
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+    }
+
+    img { display: block; max-width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font: inherit; border: none; background: none; }
+    ul, ol { list-style: none; }
+
+    .wrap { width: var(--w); margin-inline: auto; }
+
+    /* ═══════════════════════════════════
+       AMBIENT LAYERS — Performance: CSS only
+    ═══════════════════════════════════ */
+    .site-bg {
+      position: fixed; inset: 0; z-index: 0;
+      pointer-events: none; overflow: hidden;
+    }
+
+    .orb {
+      position: absolute; border-radius: 50%;
+      filter: blur(110px); opacity: 0.45;
+      will-change: transform;
+      animation: drift 18s ease-in-out infinite alternate;
+    }
+    .orb-1 {
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(91,33,182,.65), transparent 70%);
+      top: -200px; left: -150px;
+    }
+    .orb-2 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(139,92,246,.45), transparent 70%);
+      bottom: -250px; right: -200px;
+      animation-delay: -9s;
+    }
+    .orb-3 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, rgba(216,180,254,.25), transparent 70%);
+      top: 40%; left: 55%;
+      animation-delay: -5s;
+    }
+
+    @keyframes drift {
+      from { transform: translate(0,0) scale(1); }
+      to   { transform: translate(28px, 18px) scale(1.08); }
+    }
+
+    /* Grain texture */
+    .grain {
+      position: fixed; inset: 0; z-index: 1;
+      pointer-events: none; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23f)'/%3E%3C/svg%3E");
+      background-size: 200px 200px;
+    }
+
+    /* All content above bg */
+    .site-shell { position: relative; z-index: 2; }
+
+    /* ═══════════════════════════════════
+       ANNOUNCE BAR
+    ═══════════════════════════════════ */
+    .announce {
+      background: var(--g-main);
+      overflow: hidden;
+      height: 38px;
+      display: flex;
+      align-items: center;
+    }
+
+    .announce-inner {
+      display: flex;
+      gap: 56px;
+      white-space: nowrap;
+      animation: ticker 26s linear infinite;
+      padding-right: 56px;
+    }
+
+    .announce-inner span {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.9);
+    }
+    .announce-inner span::before {
+      content: "✦";
+      opacity: .65;
+      font-size: 9px;
+    }
+
+    @keyframes ticker {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ═══════════════════════════════════
+       HEADER — Sticky, semantic <header>
+    ═══════════════════════════════════ */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      height: var(--hh);
+      background: rgba(13,5,32,.88);
+      backdrop-filter: blur(24px) saturate(160%);
+      -webkit-backdrop-filter: blur(24px) saturate(160%);
+      border-bottom: 1px solid var(--line);
+      transition: box-shadow var(--ease);
+    }
+    .site-header.scrolled { box-shadow: 0 4px 40px rgba(91,33,182,.28); }
+
+    .header-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    /* Logo */
+    .logo-link {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      flex-shrink: 0;
+    }
+    .logo-icon {
+      width: 40px; height: 40px;
+      border-radius: 11px;
+      background: var(--g-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(124,58,237,.5);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .logo-icon::after {
+      content: "";
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,.22), transparent 60%);
+    }
+    .logo-letter {
+      font-family: "Playfair Display", serif;
+      font-size: 24px; font-weight: 900;
+      color: #fff; line-height: 1;
+      position: relative; z-index: 1;
+    }
+    .logo-text-wrap { display: flex; flex-direction: column; line-height: 1.15; }
+    .logo-name {
+      font-family: "Playfair Display", serif;
+      font-size: 21px; font-weight: 900;
+      background: var(--g-warm);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      letter-spacing: .01em;
+    }
+    .logo-tag {
+      font-size: 9px; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--t-4);
+    }
+
+    /* Desktop nav — semantic <nav> */
+    .primary-nav { display: flex; gap: 4px; }
+    .primary-nav a {
+      padding: 8px 15px;
+      border-radius: var(--pill);
+      font-size: 13px; font-weight: 500;
+      color: var(--t-3);
+      transition: all var(--ease);
+    }
+    .primary-nav a:hover,
+    .primary-nav a[aria-current="page"] {
+      background: rgba(139,92,246,.14);
+      color: var(--p-200);
+    }
+
+    .header-actions { display: flex; align-items: center; gap: 8px; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 10px 20px;
+      border-radius: var(--pill);
+      font-size: 13px; font-weight: 700;
+      transition: all var(--ease);
+      white-space: nowrap;
+    }
+    .btn-outline {
+      border: 1.5px solid var(--line-2);
+      color: var(--t-2);
+    }
+    .btn-outline:hover { border-color: var(--p-400); color: var(--p-200); background: rgba(139,92,246,.08); }
+
+    .btn-primary {
+      background: var(--g-main);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(124,58,237,.40);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 28px rgba(124,58,237,.55); }
+
+    /* Hamburger */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 8px;
+      border-radius: var(--r-xs);
+    }
+    .menu-toggle span {
+      display: block; width: 20px; height: 2px;
+      background: var(--t-2); border-radius: 2px;
+      transition: all var(--ease);
+    }
+
+    /* ═══════════════════════════════════
+       MOBILE DRAWER
+    ═══════════════════════════════════ */
+    .drawer-overlay {
+      position: fixed; inset: 0; z-index: 200;
+      background: rgba(0,0,0,.72);
+      backdrop-filter: blur(6px);
+      opacity: 0; pointer-events: none;
+      transition: opacity var(--ease-2);
+    }
+    .drawer-overlay.open { opacity: 1; pointer-events: all; }
+
+    .drawer {
+      position: fixed; top: 0; left: 0; bottom: 0;
+      width: 285px; z-index: 300;
+      background: var(--bg-2);
+      border-right: 1px solid var(--line-2);
+      box-shadow: 20px 0 60px rgba(0,0,0,.5);
+      transform: translateX(-100%);
+      transition: transform var(--ease-2);
+      display: flex; flex-direction: column;
+      padding: 0 0 24px;
+    }
+    .drawer.open { transform: translateX(0); }
+
+    .drawer-header {
+      display: flex; align-items: center;
+      justify-content: space-between;
+      padding: 20px 20px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .drawer-close {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--glass); border: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px; color: var(--t-2);
+      transition: all var(--ease);
+    }
+    .drawer-close:hover { background: rgba(139,92,246,.15); color: var(--p-200); }
+
+    .drawer-nav {
+      display: flex; flex-direction: column;
+      padding: 16px 14px; gap: 4px; flex: 1;
+    }
+    .drawer-nav a {
+      padding: 14px 16px; border-radius: var(--r-sm);
+      font-size: 16px; font-weight: 500; color: var(--t-2);
+      border: 1px solid transparent;
+      transition: all var(--ease);
+    }
+    .drawer-nav a:hover {
+      background: rgba(139,92,246,.12);
+      border-color: var(--line-2);
+      color: var(--p-200);
+    }
+    .drawer-cta {
+      padding: 0 14px;
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .drawer-cta a { justify-content: center; width: 100%; }
+
+    /* ═══════════════════════════════════
+       HERO — semantic <section>
+    ═══════════════════════════════════ */
+    .hero {
+      min-height: calc(100svh - var(--hh) - 38px);
+      display: flex;
+      align-items: center;
+      padding: 72px 0 60px;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      text-align: center;
+    }
+
+    /* Eyebrow pill */
+    .eyebrow-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: rgba(91,33,182,.2);
+      border: 1px solid rgba(139,92,246,.35);
+      border-radius: var(--pill);
+      padding: 7px 17px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .12em; text-transform: uppercase;
+      color: var(--p-200);
+      margin-bottom: 20px;
+    }
+    .live-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 8px var(--green);
+      animation: pulse 2s ease-in-out infinite;
+      flex-shrink: 0;
+    }
+    @keyframes pulse { 0%,100% { opacity:1; transform:scale(1); } 50% { opacity:.5; transform:scale(.8); } }
+
+    /* Hero heading — H1, semantic */
+    .hero-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(46px, 11vw, 104px);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -.03em;
+      margin-bottom: 22px;
+    }
+    .hero-title .line { display: block; }
+    .grad-text {
+      background: var(--g-warm);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .gold-text {
+      background: var(--g-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      font-style: italic;
+    }
+
+    .hero-desc {
+      font-size: clamp(15px, 3.5vw, 18px);
+      color: var(--t-2);
+      max-width: 520px;
+      margin: 0 auto 36px;
+      line-height: 1.8;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-bottom: 52px;
+    }
+    .hero-btns .btn { font-size: 15px; padding: 14px 30px; }
+
+    /* Stats strip */
+    .hero-stats {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .stat-chip {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--surf);
+      border: 1px solid var(--line-2);
+      border-radius: var(--pill);
+      padding: 13px 22px;
+      backdrop-filter: blur(14px);
+      box-shadow: 0 8px 30px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.05);
+      transition: transform var(--ease);
+    }
+    .stat-chip:hover { transform: translateY(-3px); }
+
+    .stat-num {
+      font-family: "Playfair Display", serif;
+      font-size: 28px; font-weight: 900; line-height: 1;
+      background: var(--g-warm);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .stat-lbl {
+      font-size: 11px; font-weight: 600;
+      color: var(--t-4);
+      text-transform: uppercase; letter-spacing: .06em;
+    }
+
+    /* 3D floating card */
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+    }
+
+    .floating-card {
+      width: min(340px, 88vw);
+      background: linear-gradient(145deg, #2a0d6e, #4a1a9a);
+      border: 1px solid rgba(196,181,253,.35);
+      border-radius: 28px;
+      box-shadow:
+        0 32px 80px rgba(0,0,0,.55),
+        0 0 60px rgba(91,33,182,.35),
+        inset 0 1px 0 rgba(255,255,255,.1);
+      overflow: hidden;
+      transform-style: preserve-3d;
+      perspective: 1000px;
+      animation: floatCard 6s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%,100% { transform: rotateX(6deg) rotateY(-3deg) translateY(0); }
+      33%      { transform: rotateX(3deg) rotateY(4deg) translateY(-8px); }
+      66%      { transform: rotateX(-2deg) rotateY(-2deg) translateY(-4px); }
+    }
+
+    .card-header {
+      padding: 26px 24px 18px;
+      background: linear-gradient(180deg, rgba(196,181,253,.12), transparent);
+      border-bottom: 1px solid rgba(196,181,253,.15);
+    }
+    .card-brand {
+      font-family: "Playfair Display", serif;
+      font-size: 32px; font-weight: 900; font-style: italic;
+      background: var(--g-warm);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 4px;
+    }
+    .card-location {
+      font-size: 11px; letter-spacing: .14em;
+      text-transform: uppercase; color: rgba(255,255,255,.45);
+    }
+    .card-body { padding: 18px 24px 24px; }
+    .card-row {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(255,255,255,.06);
+    }
+    .card-row:last-of-type { border-bottom: none; }
+    .card-key { font-size: 12px; color: rgba(255,255,255,.4); }
+    .card-val {
+      font-size: 13px; font-weight: 700;
+      background: var(--g-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .card-status {
+      display: inline-flex;
+      align-items: center; gap: 7px;
+      background: rgba(139,92,246,.2);
+      border: 1px solid rgba(196,181,253,.25);
+      border-radius: var(--pill);
+      padding: 6px 14px;
+      font-size: 11px; font-weight: 700; color: var(--p-200);
+      margin-top: 14px;
+    }
+
+    /* ═══════════════════════════════════
+       SECTION COMMONS
+    ═══════════════════════════════════ */
+    .section { padding: 96px 0; }
+    .section-tinted {
+      background: linear-gradient(180deg,
+        rgba(91,33,182,.04) 0%,
+        rgba(139,92,246,.03) 50%,
+        transparent 100%);
+    }
+
+    .section-header { text-align: center; margin-bottom: 60px; }
+    .section-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .16em; text-transform: uppercase;
+      color: var(--p-400);
+      margin-bottom: 14px;
+    }
+    .section-eyebrow::before,
+    .section-eyebrow::after { content: "—"; opacity: .4; }
+
+    .section-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(32px, 5vw, 56px);
+      font-weight: 900; line-height: 1.1; color: var(--t-1);
+    }
+    .section-title em {
+      font-style: italic;
+      background: var(--g-warm);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .section-sub {
+      font-size: 16px; color: var(--t-2);
+      max-width: 500px; margin: 14px auto 0;
+      line-height: 1.75;
+    }
+
+    /* ═══════════════════════════════════
+       SERVICES
+    ═══════════════════════════════════ */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .service-card {
+      background: var(--g-card);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      padding: 28px 22px;
+      transition: all var(--ease-2);
+      position: relative; overflow: hidden;
+      transform-style: preserve-3d;
+    }
+    .service-card::before {
+      content: "";
+      position: absolute; inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(135deg, rgba(139,92,246,.12), transparent 60%);
+      opacity: 0; transition: opacity var(--ease);
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-card:hover {
+      transform: translateY(-6px) rotateX(3deg);
+      border-color: var(--line-2);
+      box-shadow: 0 20px 50px rgba(0,0,0,.4), 0 0 30px rgba(91,33,182,.2);
+    }
+
+    .service-icon {
+      width: 52px; height: 52px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, rgba(91,33,182,.38), rgba(139,92,246,.18));
+      border: 1px solid rgba(139,92,246,.28);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      margin-bottom: 18px;
+      box-shadow: 0 4px 16px rgba(91,33,182,.25);
+    }
+    .service-name {
+      font-family: "Playfair Display", serif;
+      font-size: 18px; font-weight: 700;
+      color: var(--t-1); margin-bottom: 8px;
+    }
+    .service-desc { font-size: 13px; color: var(--t-3); line-height: 1.68; }
+
+    /* ═══════════════════════════════════
+       PORTFOLIO — Reads from localStorage
+    ═══════════════════════════════════ */
+    .filter-bar {
+      display: flex; gap: 8px;
+      flex-wrap: wrap; justify-content: center;
+      margin-bottom: 40px;
+    }
+    .filter-btn {
+      padding: 9px 20px;
+      border-radius: var(--pill);
+      font-size: 12px; font-weight: 600;
+      letter-spacing: .04em;
+      border: 1.5px solid var(--line);
+      color: var(--t-3);
+      transition: all var(--ease);
+    }
+    .filter-btn[aria-pressed="true"],
+    .filter-btn:hover {
+      background: var(--g-main);
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(124,58,237,.35);
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .portfolio-card {
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--surf);
+      transition: all var(--ease-2);
+      transform-style: preserve-3d;
+      cursor: pointer;
+    }
+    .portfolio-card.wide { grid-column: span 2; }
+    .portfolio-card:hover {
+      transform: translateY(-5px) rotateX(2deg);
+      box-shadow: 0 22px 60px rgba(0,0,0,.5), 0 0 30px rgba(91,33,182,.25);
+      border-color: var(--line-2);
+    }
+
+    .p-thumb {
+      position: relative; overflow: hidden;
+      aspect-ratio: 1 / 1;
+    }
+    .portfolio-card.wide .p-thumb { aspect-ratio: 16 / 9; }
+
+    .p-thumb img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform .55s ease;
+      will-change: transform;
+    }
+    .portfolio-card:hover .p-thumb img { transform: scale(1.07); }
+
+    .p-hover {
+      position: absolute; inset: 0;
+      background: linear-gradient(0deg, rgba(13,5,32,.88) 0%, transparent 55%);
+      display: flex; align-items: flex-end; padding: 14px;
+      opacity: 0; transition: opacity var(--ease);
+    }
+    .portfolio-card:hover .p-hover { opacity: 1; }
+    .p-hover-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 8px 16px; border-radius: var(--pill);
+      background: rgba(255,255,255,.14);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,.22);
+      font-size: 12px; font-weight: 700; color: #fff;
+    }
+
+    .p-meta { padding: 13px 15px 15px; }
+    .p-tag {
+      font-size: 10px; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      background: var(--g-warm);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      display: block; margin-bottom: 5px;
+    }
+    .p-name { font-size: 14px; font-weight: 700; color: var(--t-1); line-height: 1.35; }
+    .p-desc { font-size: 11px; color: var(--t-3); margin-top: 4px; line-height: 1.5; }
+
+    .empty-state {
+      grid-column: 1 / -1;
+      text-align: center; padding: 60px 20px;
+    }
+    .empty-state p { font-size: 15px; color: var(--t-3); }
+
+    /* ═══════════════════════════════════
+       MARQUEE STRIP
+    ═══════════════════════════════════ */
+    .marquee-strip {
+      background: var(--g-main);
+      overflow: hidden; padding: 18px 0;
+    }
+    .marquee-inner {
+      display: flex; gap: 56px;
+      white-space: nowrap;
+      animation: ticker 22s linear infinite;
+      padding-right: 56px;
+    }
+    .marquee-inner span {
+      font-family: "Playfair Display", serif;
+      font-size: 20px; font-weight: 700; font-style: italic;
+      color: rgba(255,255,255,.82);
+      display: inline-flex; align-items: center; gap: 14px;
+    }
+    .marquee-inner span::before { content: "✦"; font-style: normal; font-size: 11px; opacity: .65; }
+
+    /* ═══════════════════════════════════
+       WHY US
+    ═══════════════════════════════════ */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .why-visual-card {
+      border-radius: var(--r-xl);
+      background: linear-gradient(145deg, #2a0d72, #5b21b6);
+      border: 1px solid rgba(196,181,253,.3);
+      padding: 40px 32px;
+      text-align: center;
+      position: relative; overflow: hidden;
+      box-shadow:
+        0 32px 80px rgba(0,0,0,.5),
+        0 0 60px rgba(91,33,182,.3);
+    }
+    .why-visual-card::before {
+      content: "M";
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      font-family: "Playfair Display", serif;
+      font-size: 260px; font-weight: 900; font-style: italic;
+      color: rgba(255,255,255,.04);
+      line-height: 1; user-select: none; pointer-events: none;
+    }
+    .why-big-name {
+      font-family: "Playfair Display", serif;
+      font-size: 52px; font-weight: 900; font-style: italic;
+      background: var(--g-warm);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      position: relative; z-index: 1;
+    }
+    .why-estab {
+      font-size: 12px; letter-spacing: .14em;
+      text-transform: uppercase; color: rgba(255,255,255,.4);
+      margin-bottom: 28px; position: relative; z-index: 1;
+    }
+    .why-mini-stats {
+      display: grid; grid-template-columns: repeat(3,1fr);
+      gap: 10px; position: relative; z-index: 1;
+    }
+    .wms {
+      background: rgba(0,0,0,.32);
+      border: 1px solid rgba(196,181,253,.2);
+      border-radius: var(--r-sm);
+      padding: 14px 8px; text-align: center;
+    }
+    .wms-n {
+      font-family: "Playfair Display", serif;
+      font-size: 26px; font-weight: 900;
+      background: var(--g-gold);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .wms-l { font-size: 10px; color: rgba(255,255,255,.35); text-transform: uppercase; letter-spacing: .05em; }
+
+    .why-points { display: flex; flex-direction: column; gap: 14px; }
+    .why-point {
+      display: flex; align-items: flex-start; gap: 16px;
+      padding: 22px 20px;
+      background: var(--surf);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      transition: all var(--ease-2);
+    }
+    .why-point:hover {
+      border-color: var(--line-2);
+      transform: translateX(6px);
+      box-shadow: 0 8px 30px rgba(91,33,182,.15);
+    }
+    .wp-icon {
+      width: 46px; height: 46px; flex-shrink: 0;
+      border-radius: 13px;
+      background: linear-gradient(135deg, rgba(91,33,182,.38), rgba(139,92,246,.15));
+      border: 1px solid rgba(139,92,246,.28);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .wp-title { font-size: 15px; font-weight: 700; color: var(--t-1); margin-bottom: 5px; }
+    .wp-desc { font-size: 13px; color: var(--t-3); line-height: 1.65; }
+
+    /* ═══════════════════════════════════
+       FAQ — semantic <details> / <summary>
+    ═══════════════════════════════════ */
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 10px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      background: var(--surf);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      transition: border-color var(--ease);
+    }
+    .faq-item[open] { border-color: var(--line-2); }
+
+    .faq-item summary {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 20px 22px;
+      cursor: pointer;
+      list-style: none;
+      user-select: none;
+    }
+    .faq-item summary::-webkit-details-marker { display: none; }
+
+    .faq-num {
+      font-family: "Playfair Display", serif;
+      font-size: 16px; font-weight: 700;
+      color: var(--p-400); min-width: 28px; flex-shrink: 0;
+    }
+    .faq-q {
+      flex: 1; font-size: 15px; font-weight: 600; color: var(--t-1);
+    }
+    .faq-arrow {
+      width: 28px; height: 28px; border-radius: 50%;
+      border: 1.5px solid var(--line-2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 14px; color: var(--p-300);
+      flex-shrink: 0; transition: all var(--ease);
+    }
+    .faq-item[open] .faq-arrow { background: var(--g-main); border-color: transparent; color: #fff; transform: rotate(45deg); }
+    .faq-answer { padding: 0 22px 20px 64px; font-size: 14px; color: var(--t-3); line-height: 1.78; }
+
+    /* ═══════════════════════════════════
+       CONTACT
+    ═══════════════════════════════════ */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 36px;
+    }
+
+    .contact-info-title {
+      font-family: "Playfair Display", serif;
+      font-size: clamp(32px, 6vw, 52px);
+      font-weight: 900; line-height: 1.1;
+      margin-bottom: 16px;
+    }
+    .contact-info-title em {
+      font-style: italic;
+      background: var(--g-warm);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .contact-info-desc { font-size: 16px; color: var(--t-2); margin-bottom: 30px; line-height: 1.78; }
+
+    .contact-links { display: flex; flex-direction: column; gap: 11px; }
+    .contact-link {
+      display: flex; align-items: center; gap: 14px;
+      padding: 16px 18px;
+      background: var(--surf);
+      border: 1px solid var(--line);
+      border-radius: var(--r-lg);
+      transition: all var(--ease);
+    }
+    .contact-link:hover { border-color: var(--line-2); transform: translateX(5px); box-shadow: 0 8px 26px rgba(91,33,182,.15); }
+    .cl-icon {
+      width: 42px; height: 42px; flex-shrink: 0;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(91,33,182,.38), rgba(139,92,246,.15));
+      border: 1px solid rgba(139,92,246,.25);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .cl-label { font-size: 14px; font-weight: 700; display: block; }
+    .cl-value { font-size: 12px; color: var(--t-3); }
+
+    /* Contact form card */
+    .contact-form-card {
+      background: var(--surf-2);
+      border: 1px solid var(--line-2);
+      border-radius: var(--r-xl);
+      padding: 36px 28px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.04);
+    }
+    .form-heading {
+      font-family: "Playfair Display", serif;
+      font-size: 26px; font-weight: 700;
+      margin-bottom: 26px; color: var(--t-1);
+    }
+    .form-heading em { font-style: italic; background: var(--g-warm); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group { margin-bottom: 16px; }
+    .form-label {
+      display: block;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .09em; text-transform: uppercase;
+      color: var(--t-4); margin-bottom: 7px;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: 13px 16px;
+      border-radius: var(--r-sm);
+      border: 1.5px solid var(--line);
+      background: rgba(0,0,0,.32);
+      color: var(--t-1);
+      font: inherit; font-size: 14px;
+      outline: none;
+      transition: border-color var(--ease), box-shadow var(--ease);
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--p-400);
+      box-shadow: 0 0 0 4px rgba(139,92,246,.16);
+    }
+    .form-textarea { resize: vertical; min-height: 110px; }
+    .form-select option { background: var(--bg-2); }
+
+    .form-submit {
+      width: 100%;
+      padding: 15px;
+      border-radius: var(--pill);
+      background: var(--g-main);
+      color: #fff;
+      font-size: 15px; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      border: none; cursor: pointer;
+      box-shadow: 0 8px 24px rgba(124,58,237,.4);
+      transition: all var(--ease);
+    }
+    .form-submit:hover { transform: translateY(-2px); box-shadow: 0 12px 32px rgba(124,58,237,.55); }
+    .form-submit:focus-visible { outline: 2px solid var(--p-200); outline-offset: 3px; }
+
+    /* ═══════════════════════════════════
+       FOOTER — semantic <footer>
+    ═══════════════════════════════════ */
+    .site-footer {
+      background: linear-gradient(180deg, var(--bg-2), #050010);
+      border-top: 1px solid var(--line);
+      padding: 64px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .footer-brand-desc {
+      font-size: 13px; color: var(--t-4);
+      line-height: 1.75; max-width: 280px; margin-top: 14px;
+    }
+    .footer-socials { display: flex; gap: 10px; margin-top: 20px; }
+    .social-btn {
+      width: 38px; height: 38px; border-radius: 50%;
+      border: 1px solid var(--line-2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px; color: var(--t-3);
+      font-weight: 700;
+      transition: all var(--ease);
+    }
+    .social-btn:hover { background: var(--g-main); border-color: transparent; color: #fff; transform: translateY(-2px); }
+
+    .footer-col-title {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: .13em; text-transform: uppercase;
+      color: var(--t-4); margin-bottom: 16px;
+    }
+    .footer-links { display: flex; flex-direction: column; gap: 11px; }
+    .footer-links a { font-size: 13px; color: var(--t-4); transition: color var(--ease); }
+    .footer-links a:hover { color: var(--p-200); }
+
+    .footer-bottom {
+      padding: 20px 0;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 8px;
+      font-size: 12px; color: var(--t-4);
+    }
+    .footer-bottom a { color: var(--p-200); transition: color var(--ease); }
+    .footer-bottom a:hover { color: var(--t-1); }
+
+    /* ═══════════════════════════════════
+       LIGHTBOX
+    ═══════════════════════════════════ */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 500;
+      background: rgba(0,0,0,.93);
+      backdrop-filter: blur(14px);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .28s ease;
+    }
+    .lightbox.open { opacity: 1; pointer-events: all; }
+    .lightbox img { max-width: 90vw; max-height: 88vh; border-radius: var(--r-lg); box-shadow: 0 30px 100px rgba(0,0,0,.7); }
+    .lb-close {
+      position: absolute; top: 16px; right: 16px;
+      width: 46px; height: 46px; border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; color: #fff; cursor: pointer;
+      transition: background var(--ease);
+    }
+    .lb-close:hover { background: rgba(255,255,255,.2); }
+    .lb-nav-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      width: 46px; height: 46px; border-radius: 50%;
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; color: #fff; cursor: pointer;
+      transition: background var(--ease);
+    }
+    .lb-nav-btn:hover { background: rgba(255,255,255,.2); }
+    .lb-prev { left: 12px; }
+    .lb-next { right: 12px; }
+
+    /* ═══════════════════════════════════
+       SCROLL REVEAL — CSS transitions only
+    ═══════════════════════════════════ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    .reveal.d1 { transition-delay: .10s; }
+    .reveal.d2 { transition-delay: .20s; }
+    .reveal.d3 { transition-delay: .30s; }
+    .reveal.d4 { transition-delay: .40s; }
+
+    /* ═══════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════ */
+    @media (min-width: 640px) {
+      .services-grid   { grid-template-columns: repeat(3, 1fr); }
+      .portfolio-grid  { grid-template-columns: repeat(3, 1fr); }
+      .faq-grid        { grid-template-columns: 1fr 1fr; }
+      .contact-grid    { grid-template-columns: 1fr 1fr; }
+      .why-grid        { grid-template-columns: 1fr 1fr; }
+      .footer-grid     { grid-template-columns: 2fr 1fr 1fr; }
+    }
+    @media (min-width: 900px) {
+      .hero-grid        { grid-template-columns: 1fr 1fr; text-align: left; }
+      .hero-btns        { justify-content: flex-start; }
+      .hero-stats       { justify-content: flex-start; }
+      .hero-visual      { justify-content: flex-end; }
+      .portfolio-grid   { grid-template-columns: repeat(4, 1fr); }
+      .footer-grid      { grid-template-columns: 2fr 1fr 1fr 1.5fr; }
+      .faq-grid         { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 640px) {
+      :root { --hh: 60px; }
+      .primary-nav,
+      .btn-outline     { display: none; }
+      .menu-toggle     { display: flex; }
+      .hero-grid       { gap: 36px; }
+      .form-row        { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Skip to main content — Accessibility 100 -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Ambient background — aria hidden -->
+  <div class="site-bg" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+  <div class="grain" aria-hidden="true"></div>
+
+  <div class="site-shell">
+
+    <!-- ════════════════════════════
+         ANNOUNCE BAR
+    ════════════════════════════ -->
+    <div class="announce" role="marquee" aria-label="Studio highlights">
+      <div class="announce-inner" aria-hidden="true">
+        <span>Brand Identity</span>
+        <span>Menu Design</span>
+        <span>Invitations</span>
+        <span>Logo & Sticker</span>
+        <span>Motion Graphics</span>
+        <span>Social Media</span>
+        <span>01040717586</span>
+        <span>Mennation.design</span>
+        <!-- duplicate for loop -->
+        <span>Brand Identity</span>
+        <span>Menu Design</span>
+        <span>Invitations</span>
+        <span>Logo & Sticker</span>
+        <span>Motion Graphics</span>
+        <span>Social Media</span>
+        <span>01040717586</span>
+        <span>Mennation.design</span>
+      </div>
+    </div>
+
+    <!-- ════════════════════════════
+         HEADER — landmark <header>
+    ════════════════════════════ -->
+    <header class="site-header" id="site-header" role="banner">
+      <div class="wrap header-inner">
+
+        <!-- Logo — link to homepage -->
+        <a href="/" class="logo-link" aria-label="Mennation Design Studio — Home">
+          <div class="logo-icon" aria-hidden="true">
+            <span class="logo-letter">M</span>
+          </div>
+          <div class="logo-text-wrap">
+            <span class="logo-name">Mennation</span>
+            <span class="logo-tag">Design Studio</span>
+          </div>
+        </a>
+
+        <!-- Primary navigation -->
+        <nav class="primary-nav" aria-label="Primary navigation">
+          <a href="#home"      aria-current="page">Home</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="header-actions">
+          <a href="#contact"                class="btn btn-outline">Let's Talk</a>
+          <a href="https://wa.me/201040717586"
+             class="btn btn-primary"
+             aria-label="Contact us on WhatsApp">
+            <span aria-hidden="true">💬</span> WhatsApp
+          </a>
+          <button
+            class="menu-toggle"
+            id="menu-toggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+            aria-controls="mobile-drawer">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- ════════════════════════════
+         MOBILE DRAWER
+    ════════════════════════════ -->
+    <div class="drawer-overlay" id="drawer-overlay" aria-hidden="true"></div>
+
+    <nav class="drawer"
+         id="mobile-drawer"
+         aria-label="Mobile navigation"
+         aria-hidden="true">
+      <div class="drawer-header">
+        <div class="logo-link">
+          <div class="logo-icon" aria-hidden="true"><span class="logo-letter">M</span></div>
+          <span class="logo-name">Mennation</span>
+        </div>
+        <button class="drawer-close" id="drawer-close" aria-label="Close navigation menu">✕</button>
+      </div>
+      <div class="drawer-nav">
+        <a href="#home">Home</a>
+        <a href="#services">Services</a>
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="drawer-cta">
+        <a href="#contact"                 class="btn btn-outline">Let's Talk</a>
+        <a href="https://wa.me/201040717586" class="btn btn-primary">💬 WhatsApp</a>
+      </div>
+    </nav>
+
+    <!-- ════════════════════════════
+         MAIN CONTENT
+    ════════════════════════════ -->
+    <main id="main-content">
+
+      <!-- ── HERO ── -->
+      <section class="hero" id="home" aria-labelledby="hero-title">
+        <div class="wrap">
+          <div class="hero-grid">
+
+
+              <h1 class="hero-title" id="hero-title">
+                <span class="line reveal d1">Where</span>
+                <span class="line grad-text reveal d2">Ideas</span>
+                <span class="line reveal d2">Become</span>
+                <span class="line gold-text reveal d3">Identity.</span>
+              </h1>
+
+              <p class="hero-desc reveal d3">
+                We craft unforgettable brand identities, menus, invitations, and visual experiences
+                designed to make your business impossible to ignore.
+              </p>
+
+              <div class="hero-btns reveal d4">
+                <a href="#portfolio" class="btn btn-primary">🎨 View Our Work</a>
+                <a href="#services"  class="btn btn-outline">Our Services</a>
+              </div>
+
+              <div class="hero-stats reveal d4" role="list" aria-label="Studio achievements">
+                <div class="stat-chip" role="listitem">
+                  <div>
+                    <div class="stat-num" aria-label="Over 1500 projects">1500+</div>
+                    <div class="stat-lbl">Projects</div>
+                  </div>
+                </div>
+                <div class="stat-chip" role="listitem">
+                  <div>
+                    <div class="stat-num" aria-label="Over 850 clients">850+</div>
+                    <div class="stat-lbl">Clients</div>
+                  </div>
+                </div>
+                <div class="stat-chip" role="listitem">
+                  <div>
+                    <div class="stat-num">48h</div>
+                    <div class="stat-lbl">Delivery</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Right / 3D Card -->
+            <div class="hero-visual reveal d2" aria-hidden="true">
+              <div class="floating-card" role="presentation">
+                <div class="card-header">
+                  <div class="card-brand">Mennation</div>
+                  <div class="card-location">Design Studio · Cairo, Egypt</div>
+                </div>
+                <div class="card-body">
+                  <div class="card-row">
+                    <span class="card-key">Experience</span>
+                    <span class="card-val">6+ Years</span>
+                  </div>
+                  <div class="card-row">
+                    <span class="card-key">Projects Done</span>
+                    <span class="card-val">1,500+</span>
+                  </div>
+                  <div class="card-row">
+                    <span class="card-key">Happy Clients</span>
+                    <span class="card-val">850+</span>
+                  </div>
+                  <div class="card-row">
+                    <span class="card-key">Fastest Delivery</span>
+                    <span class="card-val">48 Hours</span>
+                  </div>
+                  <div class="card-status">
+                    <span class="live-dot"></span> Available for New Projects
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SERVICES ── -->
+      <section class="section section-tinted" id="services" aria-labelledby="services-title">
+        <div class="wrap">
+          <header class="section-header">
+            <p class="section-eyebrow reveal">What We Do</p>
+            <h2 class="section-title reveal d1" id="services-title">
+              Crafted for <em>Impact</em>
+            </h2>
+            <p class="section-sub reveal d2">
+              Every service is built to elevate your brand and create a presence your audience remembers.
+            </p>
+          </header>
+
+          <ul class="services-grid" aria-label="Our services">
+            <li class="service-card reveal">
+              <div class="service-icon" aria-hidden="true">🏷️</div>
+              <h3 class="service-name">Brand Identity</h3>
+              <p class="service-desc">Logos, visual systems, and brand guidelines that tell your story with confidence and clarity.</p>
+            </li>
+            <li class="service-card reveal d1">
+              <div class="service-icon" aria-hidden="true">🍽️</div>
+              <h3 class="service-name">Menu Design</h3>
+              <p class="service-desc">Restaurant and café menus in every style — from luxury fine dining to vibrant fast food.</p>
+            </li>
+            <li class="service-card reveal d2">
+              <div class="service-icon" aria-hidden="true">💌</div>
+              <h3 class="service-name">Invitations</h3>
+              <p class="service-desc">Wedding, birthday and event invitations designed to create a memorable first impression.</p>
+            </li>
+            <li class="service-card reveal">
+              <div class="service-icon" aria-hidden="true">🎬</div>
+              <h3 class="service-name">Motion Graphics</h3>
+              <p class="service-desc">Dynamic animations and branded video content that bring your identity to life.</p>
+            </li>
+            <li class="service-card reveal d1">
+              <div class="service-icon" aria-hidden="true">📱</div>
+              <h3 class="service-name">Social Media Design</h3>
+              <p class="service-desc">Scroll-stopping visuals, templates, and content calendars for all major platforms.</p>
+            </li>
+            <li class="service-card reveal d2">
+              <div class="service-icon" aria-hidden="true">📦</div>
+              <h3 class="service-name">Packaging & Stickers</h3>
+              <p class="service-desc">Packaging, display boards, business cards, and custom sticker design that sells.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ── PORTFOLIO ── -->
+      <section class="section" id="portfolio" aria-labelledby="portfolio-title">
+        <div class="wrap">
+          <header class="section-header">
+            <p class="section-eyebrow reveal">Our Work</p>
+            <h2 class="section-title reveal d1" id="portfolio-title">
+              Latest <em>Projects</em>
+            </h2>
+            <p class="section-sub reveal d2">
+              Real work for real brands — tap any project to view it full size.
+            </p>
+          </header>
+
+          <div class="filter-bar" role="group" aria-label="Filter portfolio by category">
+            <button class="filter-btn reveal" data-filter="all" aria-pressed="true">All</button>
+            <button class="filter-btn reveal d1" data-filter="sticker"  aria-pressed="false">Logos & Stickers</button>
+            <button class="filter-btn reveal d1" data-filter="menu"     aria-pressed="false">Menus</button>
+            <button class="filter-btn reveal d2" data-filter="package"  aria-pressed="false">Packages</button>
+            <button class="filter-btn reveal d2" data-filter="invite"   aria-pressed="false">Invitations</button>
+            <button class="filter-btn reveal d3" data-filter="social"   aria-pressed="false">Social Media</button>
+            <button class="filter-btn reveal d3" data-filter="motion"   aria-pressed="false">Motion</button>
+          </div>
+
+          <div class="portfolio-grid"
+               id="portfolio-grid"
+               role="list"
+               aria-label="Portfolio projects">
+            <!-- Populated by JS from localStorage -->
+            <div class="empty-state" role="listitem">
+              <p>Loading portfolio…</p>
+            </div>
+          </div>
+
+          <div style="text-align:center; margin-top:36px;">
+            <a href="https://wa.me/201040717586"
+               class="btn btn-primary"
+               style="font-size:15px; padding:14px 32px;"
+               aria-label="Start your project on WhatsApp">
+              💬 Start Your Project
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── MARQUEE ── -->
+      <div class="marquee-strip" aria-hidden="true" role="presentation">
+        <div class="marquee-inner">
+          <span>Brand Identity</span>
+          <span>Menu Design</span>
+          <span>Invitations</span>
+          <span>Stickers & Logos</span>
+          <span>Motion Graphics</span>
+          <span>Social Media</span>
+          <span>Where Ideas Become Identity</span>
+          <!-- duplicate -->
+          <span>Brand Identity</span>
+          <span>Menu Design</span>
+          <span>Invitations</span>
+          <span>Stickers & Logos</span>
+          <span>Motion Graphics</span>
+          <span>Social Media</span>
+          <span>Where Ideas Become Identity</span>
+        </div>
+      </div>
+
+      <!-- ── WHY US ── -->
+      <section class="section" id="about" aria-labelledby="about-title">
+        <div class="wrap">
+          <div class="why-grid">
+
+            <!-- Visual Card -->
+            <div class="why-visual-card reveal" aria-label="Mennation studio statistics">
+              <p class="why-big-name">Mennation</p>
+              <p class="why-estab">Cairo · Est. 2018</p>
+              <dl class="why-mini-stats">
+                <div class="wms">
+                  <dt class="wms-l">Years</dt>
+                  <dd class="wms-n">6+</dd>
+                </div>
+                <div class="wms">
+                  <dt class="wms-l">Projects</dt>
+                  <dd class="wms-n">1500+</dd>
+                </div>
+                <div class="wms">
+                  <dt class="wms-l">Satisfied</dt>
+                  <dd class="wms-n">98%</dd>
+                </div>
+              </dl>
+            </div>
+
+            <!-- Points -->
+            <div>
+              <p class="section-eyebrow reveal">Why Choose Us</p>
+              <h2 class="section-title reveal d1" id="about-title" style="text-align:left; margin-bottom:26px;">
+                Your Vision,<br>Our <em>Mission.</em>
+              </h2>
+              <ul class="why-points" aria-label="Our advantages">
+                <li class="why-point reveal">
+                  <div class="wp-icon" aria-hidden="true">🎯</div>
+                  <div>
+                    <h3 class="wp-title">Strategy-First Design</h3>
+                    <p class="wp-desc">Every visual decision is rooted in brand strategy — designed to drive real, measurable results.</p>
+                  </div>
+                </li>
+                <li class="why-point reveal d1">
+                  <div class="wp-icon" aria-hidden="true">⚡</div>
+                  <div>
+                    <h3 class="wp-title">48-Hour Delivery</h3>
+                    <p class="wp-desc">Fast turnaround without sacrificing quality. We respect your deadlines — always.</p>
+                  </div>
+                </li>
+                <li class="why-point reveal d2">
+                  <div class="wp-icon" aria-hidden="true">🤝</div>
+                  <div>
+                    <h3 class="wp-title">True Partnership</h3>
+                    <p class="wp-desc">We become your growth partner, not just a vendor. Your success is our mission.</p>
+                  </div>
+                </li>
+                <li class="why-point reveal d3">
+                  <div class="wp-icon" aria-hidden="true">💎</div>
+                  <div>
+                    <h3 class="wp-title">10% Off First Order</h3>
+                    <p class="wp-desc">New clients receive an exclusive discount on any package. Reach out now.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ── FAQ — Native <details> for accessibility ── -->
+      <section class="section section-tinted" aria-labelledby="faq-title">
+        <div class="wrap">
+          <header class="section-header">
+            <p class="section-eyebrow reveal">FAQ</p>
+            <h2 class="section-title reveal d1" id="faq-title">
+              Common <em>Questions</em>
+            </h2>
+          </header>
+
+          <div class="faq-grid">
+            <details class="faq-item reveal" name="faq">
+              <summary>
+                <span class="faq-num">01</span>
+                <span class="faq-q">How long does a project take?</span>
+                <span class="faq-arrow" aria-hidden="true">+</span>
+              </summary>
+              <p class="faq-answer">Fastest delivery is 48 hours. Larger projects like full brand identities typically take 5–10 days. We'll always provide a clear timeline before we start.</p>
+            </details>
+
+            <details class="faq-item reveal d1" name="faq">
+              <summary>
+                <span class="faq-num">02</span>
+                <span class="faq-q">What file formats do you deliver?</span>
+                <span class="faq-arrow" aria-hidden="true">+</span>
+              </summary>
+              <p class="faq-answer">We deliver all source files (AI, PSD, Figma) plus export-ready versions (PNG, SVG, PDF, MP4). You always own your files completely.</p>
+            </details>
+
+            <details class="faq-item reveal d2" name="faq">
+              <summary>
+                <span class="faq-num">03</span>
+                <span class="faq-q">Do you offer package deals?</span>
+                <span class="faq-arrow" aria-hidden="true">+</span>
+              </summary>
+              <p class="faq-answer">Yes! We offer combined packages — logo + sticker + business card, menu + social media, and more. New clients also receive 10% OFF their first order.</p>
+            </details>
+
+            <details class="faq-item reveal d3" name="faq">
+              <summary>
+                <span class="faq-num">04</span>
+                <span class="faq-q">Do you work with international clients?</span>
+                <span class="faq-arrow" aria-hidden="true">+</span>
+              </summary>
+              <p class="faq-answer">Absolutely. While we're Cairo-based, we serve clients across the Arab world and internationally. Communication is seamless via WhatsApp, email, and Zoom.</p>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── CONTACT ── -->
+      <section class="section" id="contact" aria-labelledby="contact-title">
+        <div class="wrap">
+          <div class="contact-grid">
+
+            <!-- Info -->
+            <div>
+              <p class="section-eyebrow reveal">Get In Touch</p>
+              <h2 class="contact-info-title reveal d1" id="contact-title">
+                Let's Build<br>Something <em>Great.</em>
+              </h2>
+              <p class="contact-info-desc reveal d2">
+                Ready to elevate your brand? We'd love to hear about your project.
+                Reach out and let's create something your audience won't forget.
+              </p>
+
+              <address class="contact-links reveal d2" aria-label="Contact information">
+                <a href="https://wa.me/201040717586" class="contact-link" aria-label="WhatsApp us at 01040717586">
+                  <div class="cl-icon" aria-hidden="true">💬</div>
+                  <div>
+                    <strong class="cl-label">WhatsApp</strong>
+                    <span class="cl-value">+20 104 071 7586</span>
+                  </div>
+                </a>
+                <a href="https://mennation.design" class="contact-link" aria-label="Visit our website">
+                  <div class="cl-icon" aria-hidden="true">🌐</div>
+                  <div>
+                    <strong class="cl-label">Website</strong>
+                    <span class="cl-value">Mennation.design</span>
+                  </div>
+                </a>
+                <a href="https://instagram.com/mennation" class="contact-link" aria-label="Follow us on Instagram">
+                  <div class="cl-icon" aria-hidden="true">📸</div>
+                  <div>
+                    <strong class="cl-label">Instagram</strong>
+                    <span class="cl-value">@Mennation</span>
+                  </div>
+                </a>
+                <a href="https://behance.net/mennation" class="contact-link" aria-label="View our Behance portfolio">
+                  <div class="cl-icon" aria-hidden="true">🎨</div>
+                  <div>
+                    <strong class="cl-label">Behance</strong>
+                    <span class="cl-value">behance.net/mennation</span>
+                  </div>
+                </a>
+              </address>
+            </div>
+
+            <!-- Form -->
+            <div class="contact-form-card reveal d2">
+              <h3 class="form-heading">Send a <em>Message</em></h3>
+              <form id="contact-form" novalidate aria-label="Contact form">
+                <div class="form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="f-first">First Name</label>
+                    <input class="form-input" type="text" id="f-first"
+                           autocomplete="given-name" placeholder="Ahmad" aria-required="true"/>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="f-last">Last Name</label>
+                    <input class="form-input" type="text" id="f-last"
+                           autocomplete="family-name" placeholder="Hassan"/>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="f-phone">WhatsApp / Phone</label>
+                  <input class="form-input" type="tel" id="f-phone"
+                         autocomplete="tel" placeholder="+20 1xx xxx xxxx" aria-required="true"/>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="f-service">Service Needed</label>
+                  <select class="form-select" id="f-service" aria-required="true">
+                    <option value="">— Select a service —</option>
+                    <option value="brand">Brand Identity</option>
+                    <option value="menu">Menu Design</option>
+                    <option value="invite">Invitations</option>
+                    <option value="package">Logo + Sticker Package</option>
+                    <option value="social">Social Media Design</option>
+                    <option value="motion">Motion Graphics</option>
+                    <option value="other">Other</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label class="form-label" for="f-msg">Project Details</label>
+                  <textarea class="form-textarea" id="f-msg"
+                            placeholder="Tell us about your project, style, and timeline…"
+                            aria-required="true"></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send Message →</button>
+                <div id="form-feedback" role="status" aria-live="polite" class="sr-only"></div>
+              </form>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </main><!-- /main -->
+
+    <!-- ════════════════════════════
+         FOOTER — semantic <footer>
+    ════════════════════════════ -->
+    <footer class="site-footer" role="contentinfo" aria-label="Site footer">
+      <div class="wrap">
+        <div class="footer-grid">
+
+          <!-- Brand -->
+          <div>
+            <a href="/" class="logo-link" aria-label="Mennation — Home">
+              <div class="logo-icon" aria-hidden="true"><span class="logo-letter">M</span></div>
+              <div class="logo-text-wrap">
+                <span class="logo-name">Mennation</span>
+                <span class="logo-tag">Design Studio</span>
+              </div>
+            </a>
+            <p class="footer-brand-desc">
+              Cairo's premier graphic design studio — crafting powerful brand identities
+              and visual experiences since 2018.
+            </p>
+            <nav class="footer-socials" aria-label="Social media links">
+              <a href="https://facebook.com"  class="social-btn" aria-label="Facebook">f</a>
+              <a href="https://instagram.com" class="social-btn" aria-label="Instagram">in</a>
+              <a href="https://behance.net"   class="social-btn" aria-label="Behance">Be</a>
+              <a href="https://tiktok.com"    class="social-btn" aria-label="TikTok">▶</a>
+            </nav>
+          </div>
+
+          <!-- Links -->
+          <div>
+            <h3 class="footer-col-title">Navigation</h3>
+            <nav aria-label="Footer navigation">
+              <ul class="footer-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#portfolio">Portfolio</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+
+          <!-- Services -->
+          <div>
+            <h3 class="footer-col-title">Services</h3>
+            <ul class="footer-links">
+              <li><a href="#services">Brand Identity</a></li>
+              <li><a href="#services">Menu Design</a></li>
+              <li><a href="#services">Invitations</a></li>
+              <li><a href="#services">Social Media</a></li>
+              <li><a href="#services">Packaging</a></li>
+            </ul>
+          </div>
+
+          <!-- Contact -->
+          <div>
+            <h3 class="footer-col-title">Contact</h3>
+            <address>
+              <ul class="footer-links">
+                <li><a href="tel:+201040717586">+20 104 071 7586</a></li>
+                <li><a href="https://mennation.design">Mennation.design</a></li>
+                <li><span style="color:var(--t-4);">Cairo, Egypt</span></li>
+              </ul>
+            </address>
+          </div>
+
+        </div>
+
+        <div class="footer-bottom">
+          <p>© <span id="year"></span> Mennation Design Studio. All rights reserved.</p>
+          <p>Built for <a href="#about">creatives</a> who mean business ✦</p>
+        </div>
+      </div>
+    </footer>
+
+  </div><!-- /site-shell -->
+
+  <!-- ════════════════════════════
+       LIGHTBOX
+  ════════════════════════════ -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button class="lb-close" id="lb-close" aria-label="Close image viewer">✕</button>
+    <button class="lb-nav-btn lb-prev" id="lb-prev" aria-label="Previous image">‹</button>
+    <img id="lb-img" src="" alt="" loading="lazy"/>
+    <button class="lb-nav-btn lb-next" id="lb-next" aria-label="Next image">›</button>
+  </div>
+
+  <!-- ════════════════════════════
+       JAVASCRIPT — Vanilla only
+  ════════════════════════════ -->
+  <script>
+  "use strict";
+
+  /* ── CONSTANTS ── */
+  const LS_KEY = "mennation_portfolio";
+  const CAT_LABELS = {
+    sticker : "Logos & Stickers",
+    menu    : "Menu Design",
+    package : "Brand Package",
+    invite  : "Invitations",
+    social  : "Social Media",
+    motion  : "Motion Graphics",
+  };
+
+  /* Default seed — shown if no admin data exists */
+  const SEED = [
+    {id:"s1",name:"Thank You Sticker",cat:"sticker",desc:"Circular sticker for clothing brand",img:"mn-imgs/p1.jpg"},
+    {id:"s2",name:"Borcelle Bakery Logo",cat:"sticker",desc:"Artisan bakery logo",img:"mn-imgs/p2.jpg"},
+    {id:"s3",name:"Keithston Florist Brand",cat:"sticker",desc:"Colorful floral brand identity",img:"mn-imgs/p3.jpg"},
+    {id:"s4",name:"Aleina Stevens Florist",cat:"sticker",desc:"Butterfly-motif elegant logo",img:"mn-imgs/p4.jpg"},
+    {id:"s5",name:"Premium Steak Menu",cat:"menu",desc:"Dark-green & gold restaurant menu",img:"mn-imgs/p5.jpg"},
+    {id:"s6",name:"Special Food Menu",cat:"menu",desc:"High-energy fast-food design",img:"mn-imgs/p6.jpg"},
+    {id:"s7",name:"Elegant Bar Menu",cat:"menu",desc:"Premium black & gold bar menu",img:"mn-imgs/p7.jpg"},
+    {id:"s8",name:"Luxury Black & Gold Menu",cat:"menu",desc:"Upscale restaurant menu",img:"mn-imgs/p8.jpg"},
+    {id:"s9",name:"Oriental Restaurant Menu",cat:"menu",desc:"Dark biryani menu with gold",img:"mn-imgs/p9.jpg"},
+    {id:"s10",name:"Fast Food Menu",cat:"menu",desc:"Bold yellow & black menu",img:"mn-imgs/p10.jpg"},
+    {id:"s11",name:"Coffee Shop Menu",cat:"menu",desc:"Warm brown café catalog",img:"mn-imgs/p11.jpg"},
+    {id:"s12",name:"Burger Menu",cat:"menu",desc:"Vibrant orange burger menu",img:"mn-imgs/p12.jpg"},
+    {id:"s13",name:"Restaurant Brand Package",cat:"package",desc:"Logo + sticker + card package",img:"mn-imgs/p13.jpg"},
+    {id:"s14",name:"Organic Product Package",cat:"package",desc:"Green organic full brand pack",img:"mn-imgs/p14.jpg"},
+    {id:"s15",name:"Mona Fashion Identity",cat:"package",desc:"Luxury fashion brand identity",img:"mn-imgs/p15.jpg"},
+    {id:"s16",name:"Juliana & Daniel Wedding",cat:"invite",desc:"Floral wedding invitation",img:"mn-imgs/p16.jpg"},
+    {id:"s17",name:"Save The Date — Claudia",cat:"invite",desc:"Boho save-the-date card",img:"mn-imgs/p17.jpg"},
+    {id:"s18",name:"Birthday Party Card",cat:"invite",desc:"Pink balloon birthday invite",img:"mn-imgs/p18.jpg"},
+    {id:"s19",name:"Olivia's Birthday Party",cat:"invite",desc:"Butterfly children's invite",img:"mn-imgs/p19.jpg"},
+    {id:"s20",name:"Purple Balloon Birthday",cat:"invite",desc:"Vibrant purple birthday invite",img:"mn-imgs/p20.jpg"},
+  ];
+
+  /* ── DATA ── */
+  function getPortfolio() {
+    try {
+      const raw = localStorage.getItem(LS_KEY);
+      if (raw) return JSON.parse(raw);
+    } catch(e) {}
+    return SEED;
+  }
+
+  /* ── PORTFOLIO RENDER ── */
+  const grid        = document.getElementById("portfolio-grid");
+  const filterBtns  = document.querySelectorAll(".filter-btn");
+  let allItems      = getPortfolio();
+  let activeFilter  = "all";
+  let lbImages      = [];
+  let lbCurrent     = 0;
+
+  function renderPortfolio(items) {
+    grid.innerHTML = "";
+    if (!items.length) {
+      grid.innerHTML = `<div class="empty-state" role="listitem"><p>No designs found in this category yet.</p></div>`;
+      return;
+    }
+
+    lbImages = items.map(i => i.img);
+
+    items.forEach((item, idx) => {
+      const catLabel = CAT_LABELS[item.cat] || item.cat;
+      const isWide   = item.cat === "menu" && idx === 0;
+      const article  = document.createElement("article");
+      article.className = "portfolio-card reveal" + (isWide ? " wide" : "");
+      article.setAttribute("role", "listitem");
+      article.setAttribute("aria-label", `${item.name} — ${catLabel}`);
+      article.dataset.idx = idx;
+
+      article.innerHTML = `
+        <div class="p-thumb">
+          <img
+            src="${esc(item.img)}"
+            alt="${esc(item.name)}"
+            loading="lazy"
+            width="400"
+            height="400"
+          />
+          <div class="p-hover" aria-hidden="true">
+            <span class="p-hover-btn">👁 View Full</span>
+          </div>
+        </div>
+        <div class="p-meta">
+          <span class="p-tag">${esc(catLabel)}</span>
+          <h3 class="p-name">${esc(item.name)}</h3>
+          ${item.desc ? `<p class="p-desc">${esc(item.desc)}</p>` : ""}
+        </div>`;
+
+      article.addEventListener("click", () => openLightbox(idx));
+      article.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); openLightbox(idx); }});
+      article.setAttribute("tabindex", "0");
+
+      grid.appendChild(article);
+    });
+
+    // re-observe new cards
+    grid.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+  }
+
+  function applyFilter(filter) {
+    activeFilter = filter;
+    filterBtns.forEach(b => {
+      const pressed = b.dataset.filter === filter;
+      b.setAttribute("aria-pressed", pressed);
+    });
+    const filtered = filter === "all" ? allItems : allItems.filter(i => i.cat === filter);
+    renderPortfolio(filtered);
+  }
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener("click", () => applyFilter(btn.dataset.filter));
+  });
+
+  /* ── LIGHTBOX ── */
+  const lb     = document.getElementById("lightbox");
+  const lbImg  = document.getElementById("lb-img");
+  const lbCls  = document.getElementById("lb-close");
+  const lbPrev = document.getElementById("lb-prev");
+  const lbNext = document.getElementById("lb-next");
+
+  function openLightbox(idx) {
+    lbCurrent = idx;
+    lbImg.src = lbImages[idx];
+    lbImg.alt = allItems[idx]?.name || "";
+    lb.classList.add("open");
+    document.body.style.overflow = "hidden";
+    lbCls.focus();
+  }
+  function closeLightbox() {
+    lb.classList.remove("open");
+    document.body.style.overflow = "";
+  }
+  function lbGo(dir) {
+    lbCurrent = (lbCurrent + dir + lbImages.length) % lbImages.length;
+    lbImg.src = lbImages[lbCurrent];
+    lbImg.alt = allItems[lbCurrent]?.name || "";
+  }
+
+  lbCls.addEventListener("click", closeLightbox);
+  lbPrev.addEventListener("click", () => lbGo(-1));
+  lbNext.addEventListener("click", () => lbGo(1));
+  lb.addEventListener("click", e => { if (e.target === lb) closeLightbox(); });
+  document.addEventListener("keydown", e => {
+    if (!lb.classList.contains("open")) return;
+    if (e.key === "Escape")      closeLightbox();
+    if (e.key === "ArrowLeft")   lbGo(-1);
+    if (e.key === "ArrowRight")  lbGo(1);
+  });
+
+  /* Touch swipe */
+  let touchX = 0;
+  lb.addEventListener("touchstart", e => { touchX = e.touches[0].clientX; }, {passive:true});
+  lb.addEventListener("touchend",   e => {
+    const dx = e.changedTouches[0].clientX - touchX;
+    if (Math.abs(dx) > 48) lbGo(dx < 0 ? 1 : -1);
+  }, {passive:true});
+
+  /* ── SCROLL REVEAL ── */
+  const revealObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add("in");
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
+
+  /* ── HEADER SCROLL ── */
+  const siteHeader = document.getElementById("site-header");
+  window.addEventListener("scroll", () => {
+    siteHeader.classList.toggle("scrolled", window.scrollY > 24);
+  }, {passive: true});
+
+  /* ── MOBILE DRAWER ── */
+  const toggle        = document.getElementById("menu-toggle");
+  const drawerOverlay = document.getElementById("drawer-overlay");
+  const drawer        = document.getElementById("mobile-drawer");
+  const drawerClose   = document.getElementById("drawer-close");
+
+  function openDrawer() {
+    drawer.classList.add("open");
+    drawerOverlay.classList.add("open");
+    drawerOverlay.removeAttribute("aria-hidden");
+    drawer.removeAttribute("aria-hidden");
+    toggle.setAttribute("aria-expanded", "true");
+    drawerClose.focus();
+  }
+  function closeDrawer() {
+    drawer.classList.remove("open");
+    drawerOverlay.classList.remove("open");
+    drawerOverlay.setAttribute("aria-hidden", "true");
+    drawer.setAttribute("aria-hidden", "true");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.focus();
+  }
+
+  toggle.addEventListener("click", openDrawer);
+  drawerClose.addEventListener("click", closeDrawer);
+  drawerOverlay.addEventListener("click", closeDrawer);
+  drawer.querySelectorAll("a").forEach(a => a.addEventListener("click", closeDrawer));
+
+  /* ── NAV LINK ACTIVE STATE ── */
+  const sections = document.querySelectorAll("section[id], section.hero");
+  const navLinks  = document.querySelectorAll(".primary-nav a");
+
+  const navObserver = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(a => {
+          const active = a.getAttribute("href") === `#${e.target.id}`;
+          a.setAttribute("aria-current", active ? "page" : "false");
+        });
+      }
+    });
+  }, { rootMargin: "-40% 0px -50% 0px" });
+
+  sections.forEach(s => navObserver.observe(s));
+
+  /* ── FORM SUBMIT ── */
+  document.getElementById("contact-form").addEventListener("submit", e => {
+    e.preventDefault();
+    const feedback = document.getElementById("form-feedback");
+    feedback.textContent = "Thank you! We'll be in touch very soon.";
+    setTimeout(() => { feedback.textContent = ""; }, 5000);
+  });
+
+  /* ── FOOTER YEAR ── */
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  /* ── INITIAL RENDER ── */
+  applyFilter("all");
+
+  /* ── localStorage watch (if admin updates while site is open) ── */
+  window.addEventListener("storage", e => {
+    if (e.key === LS_KEY) {
+      try { allItems = JSON.parse(e.newValue) || SEED; }
+      catch(_) { allItems = SEED; }
+      applyFilter(activeFilter);
+    }
+  });
+
+  /* ── Util ── */
+  function esc(s = "") {
+    return String(s)
+      .replace(/&/g,"&amp;")
+      .replace(/</g,"&lt;")
+      .replace(/>/g,"&gt;")
+      .replace(/"/g,"&quot;");
+  }
+  </script>
+
+</body>
+</html>

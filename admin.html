@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="robots" content="noindex, nofollow"/>
+  <title>Mennation Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    /* ══ SAME BLUE×PURPLE TOKENS ══ */
+    :root {
+      --bg:   #060b1a;
+      --bg2:  #0a1128;
+      --bg3:  #0f1840;
+      --s1:   rgba(14,24,64,.82);
+      --s2:   rgba(20,35,90,.62);
+      --ln:   rgba(147,210,255,.12);
+      --ln2:  rgba(147,210,255,.26);
+
+      --b4: #0ea5e9;
+      --b3: #38bdf8;
+      --b2: #7dd3fc;
+      --b1: #bae6fd;
+      --v4: #6d28d9;
+      --v3: #8b5cf6;
+      --v2: #a78bfa;
+
+      --t1:#f0f8ff; --t2:#bde0f8; --t3:#7ab8d8; --t4:#3d6e8a;
+
+      --gm: linear-gradient(135deg,#0ea5e9 0%,#6d28d9 55%,#a78bfa 100%);
+      --gw: linear-gradient(135deg,#38bdf8 0%,#8b5cf6 50%,#c4b5fd 100%);
+      --green:#10b981; --rose:#f43f5e; --gold:#f59e0b;
+
+      --r1:8px; --r2:14px; --r3:20px; --r4:28px; --pill:999px;
+      --e1:220ms cubic-bezier(.4,0,.2,1);
+      --e2:460ms cubic-bezier(.22,1,.36,1);
+    }
+
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:"Outfit",sans-serif;background:var(--bg);color:var(--t1);min-height:100vh;overflow-x:hidden;}
+    img{display:block;max-width:100%;}
+    a{color:inherit;text-decoration:none;}
+    button{cursor:pointer;font:inherit;border:none;background:none;}
+
+    /* ── AMBIENT ── */
+    .bg-fx{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+    .orb{position:absolute;border-radius:50%;filter:blur(120px);opacity:.30;will-change:transform;animation:drift 22s ease-in-out infinite alternate;}
+    .orb-a{width:500px;height:500px;background:radial-gradient(circle,rgba(14,165,233,.60),transparent 70%);top:-150px;left:-120px;}
+    .orb-b{width:560px;height:560px;background:radial-gradient(circle,rgba(109,40,217,.50),transparent 70%);bottom:-200px;right:-150px;animation-delay:-11s;}
+    @keyframes drift{from{transform:translate(0,0);}to{transform:translate(24px,16px);}}
+
+    /* ══ LOGIN ══ */
+    #login{
+      position:fixed;inset:0;z-index:1000;
+      display:flex;align-items:center;justify-content:center;
+    }
+    #login.hide{display:none;}
+
+    .login-box{
+      width:min(400px,92vw);
+      background:var(--s1);
+      border:1px solid var(--ln2);
+      border-radius:var(--r4);
+      padding:44px 36px;
+      box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 60px rgba(14,165,233,.18);
+      position:relative;z-index:1;
+      animation:fadeUp .5s ease both;
+    }
+    @keyframes fadeUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+    .login-logo{text-align:center;margin-bottom:28px;}
+    .login-ico{
+      width:60px;height:60px;border-radius:16px;
+      background:var(--gm);
+      display:inline-flex;align-items:center;justify-content:center;
+      font-family:"Playfair Display",serif;font-size:32px;font-weight:900;color:#fff;
+      box-shadow:0 8px 24px rgba(14,165,233,.40);margin-bottom:12px;
+    }
+    .login-brand{
+      font-family:"Playfair Display",serif;font-size:26px;font-weight:900;
+      background:var(--gw);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    }
+    .login-sub{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--t4);margin-top:4px;}
+
+    .lf{margin-bottom:16px;}
+    .lf label{display:block;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--t4);margin-bottom:7px;}
+    .lf input{
+      width:100%;padding:13px 16px;border-radius:var(--r2);
+      border:1.5px solid var(--ln);background:rgba(0,0,0,.35);
+      color:var(--t1);font:inherit;font-size:14px;outline:none;
+      transition:border-color var(--e1),box-shadow var(--e1);
+    }
+    .lf input:focus{border-color:var(--b3);box-shadow:0 0 0 4px rgba(56,189,248,.14);}
+
+    .login-btn{
+      width:100%;padding:14px;border-radius:var(--pill);
+      background:var(--gm);color:#fff;
+      font-size:15px;font-weight:700;margin-top:6px;
+      box-shadow:0 8px 22px rgba(14,165,233,.36);
+      transition:all var(--e1);
+    }
+    .login-btn:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(14,165,233,.50);}
+    .login-err{
+      display:none;margin-top:12px;padding:10px 14px;
+      background:rgba(244,63,94,.12);border:1px solid rgba(244,63,94,.30);
+      border-radius:var(--r2);font-size:13px;color:#fca5a5;text-align:center;
+    }
+    .login-err.show{display:block;}
+
+    /* ══ APP LAYOUT ══ */
+    #app{display:none;min-height:100vh;}
+    #app.show{display:flex;}
+
+    /* ── SIDEBAR ── */
+    .sb{
+      width:240px;flex-shrink:0;
+      position:fixed;top:0;left:0;bottom:0;z-index:50;
+      background:rgba(6,11,26,.96);
+      border-right:1px solid var(--ln);
+      backdrop-filter:blur(20px);
+      display:flex;flex-direction:column;
+      transition:transform var(--e2);
+    }
+    .sb.closed{transform:translateX(-100%);}
+
+    .sb-top{
+      padding:18px 18px 14px;
+      border-bottom:1px solid var(--ln);
+    }
+    .sb-logo{display:flex;align-items:center;gap:10px;}
+    .sb-ico{
+      width:36px;height:36px;border-radius:10px;
+      background:var(--gm);
+      display:flex;align-items:center;justify-content:center;
+      font-family:"Playfair Display",serif;font-size:20px;font-weight:900;color:#fff;
+      box-shadow:0 4px 14px rgba(14,165,233,.38);flex-shrink:0;
+    }
+    .sb-name{font-family:"Playfair Display",serif;font-size:17px;font-weight:900;background:var(--gw);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+    .sb-menu{flex:1;padding:16px 12px;overflow-y:auto;}
+    .sb-lbl{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--t4);padding:10px 12px 6px;}
+    .sb-link{
+      display:flex;align-items:center;gap:11px;
+      padding:11px 12px;border-radius:var(--r2);
+      font-size:14px;font-weight:500;color:var(--t3);
+      border:1px solid transparent;
+      transition:all var(--e1);margin-bottom:2px;
+    }
+    .sb-link .ico{font-size:17px;width:20px;text-align:center;}
+    .sb-link:hover{background:rgba(14,165,233,.08);color:var(--t2);border-color:var(--ln);}
+    .sb-link.on{
+      background:linear-gradient(135deg,rgba(14,165,233,.20),rgba(109,40,217,.12));
+      color:var(--b2);border-color:var(--ln2);
+    }
+
+    .sb-foot{
+      padding:14px 16px;border-top:1px solid var(--ln);
+    }
+    .sb-user{
+      display:flex;align-items:center;gap:10px;
+      padding:11px 12px;border-radius:var(--r2);
+      background:rgba(14,165,233,.06);border:1px solid var(--ln);
+    }
+    .sb-av{
+      width:32px;height:32px;border-radius:50%;
+      background:var(--gm);
+      display:flex;align-items:center;justify-content:center;
+      font-size:13px;font-weight:700;color:#fff;flex-shrink:0;
+    }
+    .sb-uname{font-size:13px;font-weight:600;}
+    .sb-urole{font-size:10px;color:var(--t4);}
+    .sb-out{margin-left:auto;font-size:15px;color:var(--t4);padding:4px;border-radius:6px;transition:color var(--e1);}
+    .sb-out:hover{color:var(--rose);}
+
+    /* ── TOPBAR ── */
+    .tb{
+      position:fixed;top:0;left:240px;right:0;
+      height:60px;z-index:40;
+      background:rgba(6,11,26,.88);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--ln);
+      display:flex;align-items:center;padding:0 22px;gap:14px;
+    }
+    .tb.full{left:0;}
+
+    .tb-tog{
+      display:none;flex-direction:column;gap:4px;
+      padding:6px;border-radius:var(--r1);
+    }
+    .tb-tog span{display:block;width:18px;height:2px;background:var(--t2);border-radius:2px;}
+
+    .tb-title{
+      font-family:"Playfair Display",serif;
+      font-size:19px;font-weight:700;flex:1;
+    }
+    .tb-title span{background:var(--gw);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+
+    .tb-live{
+      display:flex;align-items:center;gap:7px;
+      background:rgba(14,165,233,.12);border:1px solid var(--ln2);
+      border-radius:var(--pill);padding:6px 13px;
+      font-size:12px;font-weight:600;color:var(--b2);
+    }
+    .live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 8px var(--green);animation:pulse 2s infinite;}
+    @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+    .tb-btn{
+      display:flex;align-items:center;gap:7px;
+      padding:9px 17px;border-radius:var(--pill);
+      font-size:13px;font-weight:700;
+      background:var(--gm);color:#fff;
+      box-shadow:0 4px 14px rgba(14,165,233,.32);
+      transition:all var(--e1);
+    }
+    .tb-btn:hover{transform:translateY(-1px);box-shadow:0 6px 20px rgba(14,165,233,.46);}
+
+    /* ── CONTENT ── */
+    .main{margin-left:240px;padding-top:60px;flex:1;min-width:0;}
+    .main.full{margin-left:0;}
+
+    .page{display:none;padding:28px 24px;}
+    .page.on{display:block;}
+
+    /* ── STATS ── */
+    .stat-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:14px;margin-bottom:28px;}
+    .stat{
+      background:var(--s1);border:1px solid var(--ln);border-radius:var(--r3);
+      padding:22px 18px;position:relative;overflow:hidden;
+      transition:all var(--e2);
+    }
+    .stat:hover{transform:translateY(-4px);border-color:var(--ln2);box-shadow:0 14px 40px rgba(0,0,0,.35);}
+    .stat-ico{font-size:26px;margin-bottom:10px;}
+    .stat-n{
+      font-family:"Playfair Display",serif;
+      font-size:34px;font-weight:900;line-height:1;
+      background:var(--gw);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    }
+    .stat-l{font-size:11px;font-weight:600;color:var(--t4);text-transform:uppercase;letter-spacing:.05em;margin-top:4px;}
+    .stat-tag{
+      position:absolute;top:14px;right:14px;
+      font-size:10px;font-weight:700;padding:3px 8px;border-radius:var(--pill);
+    }
+    .tag-up{background:rgba(16,185,129,.14);color:#6ee7b7;}
+    .tag-ok{background:rgba(14,165,233,.14);color:var(--b2);}
+
+    /* ── CARD ── */
+    .card{
+      background:var(--s1);border:1px solid var(--ln);border-radius:var(--r4);
+      box-shadow:0 8px 40px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.04);
+      margin-bottom:20px;overflow:hidden;
+    }
+    .card-head{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:18px 22px;border-bottom:1px solid var(--ln);
+      background:linear-gradient(135deg,rgba(14,165,233,.06),rgba(109,40,217,.04));
+      flex-wrap:wrap;gap:10px;
+    }
+    .card-title{font-family:"Playfair Display",serif;font-size:17px;font-weight:700;}
+    .card-sub{font-size:12px;color:var(--t3);margin-top:2px;}
+    .card-body{padding:22px;}
+
+    /* ── PORTFOLIO GRID ── */
+    .p-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:14px;}
+    .pi{
+      background:var(--s2);border:1px solid var(--ln);border-radius:var(--r3);
+      overflow:hidden;transition:all var(--e2);position:relative;
+    }
+    .pi:hover{transform:translateY(-5px);border-color:var(--ln2);box-shadow:0 18px 50px rgba(0,0,0,.45);}
+    .pi-thumb{aspect-ratio:1;overflow:hidden;background:var(--bg3);}
+    .pi-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+    .pi:hover .pi-thumb img{transform:scale(1.07);}
+    .pi-over{
+      position:absolute;inset:0;
+      background:linear-gradient(0deg,rgba(6,11,26,.92) 0%,transparent 60%);
+      display:flex;align-items:flex-end;padding:12px;
+      opacity:0;transition:opacity var(--e1);
+    }
+    .pi:hover .pi-over{opacity:1;}
+    .btn-group { display: flex; gap: 6px; width: 100%; }
+    .del-btn, .edit-btn {
+      flex: 1; display: flex; align-items: center; justify-content: center; gap: 4px;
+      padding: 8px; border-radius: var(--pill); font-size: 11px; font-weight: 700; color: #fff; transition: all var(--e1);
+    }
+    .del-btn{background:rgba(244,63,94,.80);border:1px solid rgba(244,63,94,.40);}
+    .del-btn:hover{background:var(--rose);}
+    .edit-btn{background:rgba(14,165,233,.80);border:1px solid rgba(14,165,233,.40);}
+    .edit-btn:hover{background:var(--b4);}
+
+    .pi-meta{padding:10px 12px 12px;}
+    .pi-cat{font-size:9px;font-weight:700;letter-spacing:.10em;text-transform:uppercase;background:var(--gw);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:block;margin-bottom:4px;}
+    .pi-name{font-size:13px;font-weight:700;color:var(--t1);line-height:1.3;}
+
+    /* ── ADD FORM ── */
+    .f-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+    .f-full{grid-column:span 2;}
+    .fl{display:block;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--t4);margin-bottom:6px;}
+    .fi,.fsel,.fta{
+      width:100%;padding:12px 14px;border-radius:var(--r2);
+      border:1.5px solid var(--ln);background:rgba(0,0,0,.32);
+      color:var(--t1);font:inherit;font-size:14px;outline:none;
+      transition:border-color var(--e1),box-shadow var(--e1);
+    }
+    .fi:focus,.fsel:focus,.fta:focus{border-color:var(--b3);box-shadow:0 0 0 4px rgba(56,189,248,.13);}
+    .fsel option{background:var(--bg2);}
+    .fta{resize:vertical;min-height:88px;}
+    .fg{margin-bottom:0;}
+
+    /* Drop zone */
+    .drop{
+      border:2px dashed var(--ln2);border-radius:var(--r3);
+      padding:28px;text-align:center;
+      background:rgba(14,165,233,.04);
+      transition:all var(--e1);cursor:pointer;position:relative;
+    }
+    .drop:hover,.drop.drag{border-color:var(--b3);background:rgba(14,165,233,.09);}
+    .drop input[type="file"]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;}
+    .drop-ico{font-size:32px;margin-bottom:8px;}
+    .drop-txt{font-size:14px;font-weight:600;color:var(--t2);}
+    .drop-sub{font-size:12px;color:var(--t4);margin-top:4px;}
+    .drop-preview{display:none;margin-top:12px;}
+    .drop-preview img{width:100px;height:100px;object-fit:cover;border-radius:var(--r2);border:2px solid var(--ln2);margin:0 auto;}
+
+    .f-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:18px;padding-top:18px;border-top:1px solid var(--ln);}
+    .btn-ghost{padding:10px 20px;border-radius:var(--pill);border:1.5px solid var(--ln2);color:var(--t2);font-size:14px;font-weight:600;transition:all var(--e1);}
+    .btn-ghost:hover{border-color:var(--b3);color:var(--b1);}
+    .btn-save{
+      display:flex;align-items:center;gap:7px;
+      padding:10px 22px;border-radius:var(--pill);
+      background:var(--gm);color:#fff;
+      font-size:14px;font-weight:700;
+      box-shadow:0 6px 18px rgba(14,165,233,.32);
+      transition:all var(--e1);
+    }
+    .btn-save:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(14,165,233,.46);}
+
+    /* Cat filter */
+    .cat-select{padding:8px 12px;border-radius:var(--pill);border:1.5px solid var(--ln);background:rgba(0,0,0,.32);color:var(--t2);font:inherit;font-size:13px;outline:none;cursor:pointer;transition:border-color var(--e1);}
+    .cat-select:focus{border-color:var(--b3);}
+
+    /* ── CONFIRM MODAL ── */
+    .modal-bg{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.78);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .25s ease;}
+    .modal-bg.show{opacity:1;pointer-events:all;}
+    .modal{width:min(360px,90vw);background:var(--bg2);border:1px solid var(--ln2);border-radius:var(--r4);padding:30px;box-shadow:0 40px 100px rgba(0,0,0,.6);transform:scale(.95);transition:transform .25s ease;}
+    .modal-bg.show .modal{transform:scale(1);}
+    .modal-ico{font-size:38px;text-align:center;margin-bottom:14px;}
+    .modal h3{font-family:"Playfair Display",serif;font-size:19px;text-align:center;margin-bottom:8px;}
+    .modal p{font-size:13px;color:var(--t3);text-align:center;line-height:1.65;margin-bottom:22px;}
+    .modal-btns{display:flex;gap:10px;}
+    .modal-btns button{flex:1;padding:11px;border-radius:var(--pill);font-size:14px;font-weight:700;transition:all var(--e1);}
+    .btn-no{border:1.5px solid var(--ln2);color:var(--t2);}
+    .btn-no:hover{border-color:var(--b3);}
+    .btn-yes{background:rgba(244,63,94,.82);color:#fff;box-shadow:0 4px 14px rgba(244,63,94,.28);}
+    .btn-yes:hover{background:var(--rose);}
+
+    /* ── TOAST ── */
+    #toast{position:fixed;bottom:22px;right:22px;z-index:2000;display:flex;flex-direction:column;gap:8px;}
+    .ti{
+      display:flex;align-items:center;gap:10px;
+      padding:13px 17px;border-radius:var(--r3);
+      background:rgba(10,17,40,.95);border:1px solid var(--ln2);
+      box-shadow:0 8px 30px rgba(0,0,0,.5);backdrop-filter:blur(16px);
+      font-size:13px;font-weight:500;max-width:280px;
+      animation:tIn .3s ease;
+    }
+    @keyframes tIn{from{opacity:0;transform:translateX(16px);}to{opacity:1;transform:translateX(0);}}
+    .ti.ok{border-color:rgba(16,185,129,.38);}
+    .ti.err{border-color:rgba(244,63,94,.38);}
+
+    /* ── EMPTY STATE ── */
+    .empty{text-align:center;padding:50px 20px;grid-column:1/-1;}
+    .empty-ico{font-size:44px;opacity:.35;margin-bottom:12px;}
+    .empty h3{font-family:"Playfair Display",serif;font-size:20px;color:var(--t2);margin-bottom:6px;}
+    .empty p{font-size:13px;color:var(--t4);}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:768px){
+      .sb{transform:translateX(-100%);}
+      .sb.open{transform:translateX(0);}
+      .tb{left:0;}
+      .main{margin-left:0;}
+      .tb-tog{display:flex;}
+      .f-grid{grid-template-columns:1fr;}
+      .f-full{grid-column:span 1;}
+    }
+  </style>
+</head>
+<body>
+
+<div class="bg-fx" aria-hidden="true">
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+</div>
+
+<div id="login" role="main" aria-label="Admin Login">
+  <div class="login-box">
+    <div class="login-logo">
+      <div class="login-ico">M</div>
+      <div class="login-brand">Mennation</div>
+      <div class="login-sub">Admin Dashboard</div>
+    </div>
+    <div class="lf">
+      <label for="l-u">Username</label>
+      <input type="text" id="l-u" autocomplete="username" placeholder="admin"/>
+    </div>
+    <div class="lf">
+      <label for="l-p">Password</label>
+      <input type="password" id="l-p" autocomplete="current-password" placeholder="••••••••"/>
+    </div>
+    <button class="login-btn" id="login-btn">Sign In →</button>
+    <div class="login-err" id="login-err" role="alert">Wrong credentials. Try again.</div>
+  </div>
+</div>
+
+<div id="app">
+
+  <nav class="sb" id="sb" aria-label="Dashboard navigation">
+    <div class="sb-top">
+      <div class="sb-logo">
+        <div class="sb-ico" aria-hidden="true">M</div>
+        <div>
+          <div class="sb-name">Mennation</div>
+          <div style="font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--t4);">Admin Panel</div>
+        </div>
+      </div>
+    </div>
+    <div class="sb-menu">
+      <div class="sb-lbl">Dashboard</div>
+      <a class="sb-link on" data-pg="overview"><span class="ico">📊</span> Overview</a>
+      <a class="sb-link" data-pg="portfolio"><span class="ico">🖼️</span> All Designs</a>
+      <a class="sb-link" data-pg="add" id="nav-add"><span class="ico">➕</span> Add Design</a>
+      <div class="sb-lbl">Tools</div>
+      <a class="sb-link" data-pg="preview"><span class="ico">🌐</span> View Site</a>
+    </div>
+    <div class="sb-foot">
+      <div class="sb-user">
+        <div class="sb-av" aria-hidden="true">A</div>
+        <div>
+          <div class="sb-uname">Admin</div>
+          <div class="sb-urole">Super Admin</div>
+        </div>
+        <button class="sb-out" id="logout" aria-label="Sign out" title="Sign out">⏻</button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="tb" id="tb" role="banner">
+    <button class="tb-tog" id="sb-tog" aria-label="Toggle sidebar"><span></span><span></span><span></span></button>
+    <h1 class="tb-title"><span id="pg-title">Overview</span></h1>
+    <div class="tb-live"><span class="live-dot" aria-hidden="true"></span> Live</div>
+    <a href="index.html" target="_blank" class="tb-btn" aria-label="Open live site">🌐 View Site</a>
+  </div>
+
+  <main class="main" id="main-c">
+
+    <div class="page on" id="page-overview">
+      <div class="stat-row" role="list">
+        <div class="stat" role="listitem">
+          <div class="stat-ico">🖼️</div>
+          <div class="stat-n" id="cnt-total">0</div>
+          <div class="stat-l">Total Designs</div>
+          <span class="stat-tag tag-ok">Portfolio</span>
+        </div>
+        <div class="stat" role="listitem">
+          <div class="stat-ico">🏷️</div>
+          <div class="stat-n" id="cnt-cats">0</div>
+          <div class="stat-l">Categories</div>
+          <span class="stat-tag tag-ok">Active</span>
+        </div>
+        <div class="stat" role="listitem">
+          <div class="stat-ico">👥</div>
+          <div class="stat-n">850+</div>
+          <div class="stat-l">Clients</div>
+          <span class="stat-tag tag-up">▲ Growing</span>
+        </div>
+        <div class="stat" role="listitem">
+          <div class="stat-ico">⚡</div>
+          <div class="stat-n">48h</div>
+          <div class="stat-l">Delivery</div>
+          <span class="stat-tag tag-up">Fast</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head">
+          <div><div class="card-title">Recent Additions</div><div class="card-sub">Last 6 designs added</div></div>
+          <button class="tb-btn" data-pg="add" onclick="clearForm()">➕ Add New</button>
+        </div>
+        <div class="card-body">
+          <div class="p-grid" id="recent-grid"></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><div><div class="card-title">By Category</div></div></div>
+        <div class="card-body">
+          <div id="cat-breakdown" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page-portfolio">
+      <div class="card">
+        <div class="card-head">
+          <div><div class="card-title">All Designs</div><div class="card-sub" id="port-count">0 designs</div></div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap;">
+            <select id="cat-filter" class="cat-select" aria-label="Filter by category">
+              <option value="">All Categories</option>
+              <option value="sticker">Logos &amp; Stickers</option>
+              <option value="menu">Menu Design</option>
+              <option value="package">Brand Package</option>
+              <option value="invite">Invitations</option>
+              <option value="social">Social Media</option>
+              <option value="motion">Motion Graphics</option>
+            </select>
+            <button class="tb-btn" data-pg="add" onclick="clearForm()">➕ Add</button>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="p-grid" id="all-grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page-add">
+      <div class="card">
+        <div class="card-head">
+          <div><div class="card-title" id="add-form-title">Add New Design</div><div class="card-sub">Upload image and fill details</div></div>
+        </div>
+        <div class="card-body">
+          <div class="f-grid">
+            <div class="fg f-full">
+              <label class="fl">Design Image</label>
+              <div class="drop" id="drop-zone">
+                <input type="file" id="img-input" accept="image/*" aria-label="Upload image"/>
+                <div class="drop-ico">🎨</div>
+                <div class="drop-txt">Drop image here or click to upload</div>
+                <div class="drop-sub">JPG, PNG, WebP — 1:1 ratio recommended</div>
+                <div class="drop-preview" id="drop-preview"><img id="preview-img" src="" alt="Preview"/></div>
+              </div>
+            </div>
+            <div class="fg">
+              <label class="fl" for="des-name">Design Name *</label>
+              <input class="fi" type="text" id="des-name" placeholder="e.g. Luxury Steak Menu" aria-required="true"/>
+            </div>
+            <div class="fg">
+              <label class="fl" for="des-cat">Category *</label>
+              <select class="fsel" id="des-cat" aria-required="true">
+                <option value="">— Select —</option>
+                <option value="sticker">Logos &amp; Stickers</option>
+                <option value="menu">Menu Design</option>
+                <option value="package">Brand Package</option>
+                <option value="invite">Invitations</option>
+                <option value="social">Social Media</option>
+                <option value="motion">Motion Graphics</option>
+              </select>
+            </div>
+            <div class="fg f-full">
+              <label class="fl" for="des-desc">Description</label>
+              <textarea class="fta" id="des-desc" placeholder="Brief description of the design…"></textarea>
+            </div>
+            <div class="fg">
+              <label class="fl" for="des-client">Client Name (optional)</label>
+              <input class="fi" type="text" id="des-client" placeholder="e.g. Borcelle Bakery"/>
+            </div>
+            <div class="fg">
+              <label class="fl" for="des-feat">Featured?</label>
+              <select class="fsel" id="des-feat">
+                <option value="no">No</option>
+                <option value="yes">Yes — show prominently</option>
+              </select>
+            </div>
+          </div>
+          <div class="f-actions">
+            <button class="btn-ghost" id="clear-btn">Cancel</button>
+            <button class="btn-save" id="save-btn">✦ Save to Portfolio</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page-preview">
+      <div class="card">
+        <div class="card-head">
+          <div><div class="card-title">Site Preview</div><div class="card-sub">index.html — live portfolio</div></div>
+          <a href="index.html" target="_blank" class="tb-btn">↗ Open Full</a>
+        </div>
+        <div style="padding:0;">
+          <iframe src="index.html" style="width:100%;height:72vh;border:none;border-radius:0 0 var(--r4) var(--r4);" title="Mennation portfolio preview" loading="lazy"></iframe>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="modal-bg" id="modal" role="dialog" aria-modal="true">
+  <div class="modal">
+    <div class="modal-ico">🗑️</div>
+    <h3 id="modal-title">Delete Design?</h3>
+    <p>This will permanently remove the design from the portfolio.</p>
+    <div class="modal-btns">
+      <button class="btn-no" id="modal-no">Cancel</button>
+      <button class="btn-yes" id="modal-yes">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast" role="status" aria-live="polite" aria-atomic="false"></div>
+
+<script>
+"use strict";
+
+/* ── CREDENTIALS ── */
+const USER="admin", PASS="mennation2025";
+const LS="mennation_portfolio";
+const CATS={sticker:"Logos & Stickers",menu:"Menu Design",package:"Brand Package",invite:"Invitations",social:"Social Media",motion:"Motion Graphics"};
+const CATICONS={sticker:"🏷️",menu:"🍽️",package:"📦",invite:"💌",social:"📱",motion:"🎬"};
+
+/* ── STATE ── */
+let editingId = null;
+
+/* ── SEED DATA ── */
+const SEED=[
+  {id:"s1",name:"Thank You Sticker",cat:"sticker",img:"mn-imgs/p1.jpg",desc:"Circular sticker for clothing brand"},
+  {id:"s2",name:"Borcelle Bakery Logo",cat:"sticker",img:"mn-imgs/p2.jpg",desc:"Artisan bakery logo"},
+  {id:"s3",name:"Keithston Florist Brand",cat:"sticker",img:"mn-imgs/p3.jpg",desc:"Colorful floral brand identity"},
+  {id:"s4",name:"Aleina Stevens Florist",cat:"sticker",img:"mn-imgs/p4.jpg",desc:"Butterfly-motif logo"},
+  {id:"s5",name:"Premium Steak Menu",cat:"menu",img:"mn-imgs/p5.jpg",desc:"Dark-green & gold restaurant menu"},
+  {id:"s6",name:"Special Food Menu",cat:"menu",img:"mn-imgs/p6.jpg",desc:"High-energy fast-food design"},
+  {id:"s7",name:"Elegant Bar Menu",cat:"menu",img:"mn-imgs/p7.jpg",desc:"Premium black & gold bar menu"},
+  {id:"s8",name:"Luxury Black & Gold Menu",cat:"menu",img:"mn-imgs/p8.jpg",desc:"Upscale restaurant menu"},
+  {id:"s9",name:"Oriental Restaurant Menu",cat:"menu",img:"mn-imgs/p9.jpg",desc:"Dark biryani menu with gold"},
+  {id:"s10",name:"Fast Food Menu",cat:"menu",img:"mn-imgs/p10.jpg",desc:"Bold yellow & black menu"}
+];
+
+/* ── DATA ── */
+function getData(){try{const r=localStorage.getItem(LS);if(r)return JSON.parse(r);}catch(e){}const s=JSON.parse(JSON.stringify(SEED));save(s);return s;}
+function save(d){try{localStorage.setItem(LS,JSON.stringify(d));}catch(e){}}
+function esc(s=""){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+
+/* ── LOGIN LOGIC (With Refresh Fix) ── */
+const loginEl=document.getElementById("login"),appEl=document.getElementById("app");
+
+// Check Session Storage on load
+if(sessionStorage.getItem("mn_admin_logged") === "true"){
+  loginEl.classList.add("hide");
+  appEl.classList.add("show");
+  refreshAll();
+}
+
+document.getElementById("login-btn").addEventListener("click",tryLogin);
+document.addEventListener("keydown",e=>{if(!loginEl.classList.contains("hide")&&e.key==="Enter")tryLogin();});
+
+function tryLogin(){
+  const u=document.getElementById("l-u").value.trim();
+  const p=document.getElementById("l-p").value;
+  if(u===USER&&p===PASS){
+    sessionStorage.setItem("mn_admin_logged", "true"); // Save login state
+    loginEl.classList.add("hide");
+    appEl.classList.add("show");
+    refreshAll();
+  }else{
+    document.getElementById("login-err").classList.add("show");
+    document.getElementById("l-p").value="";
+    document.getElementById("l-p").focus();
+  }
+}
+
+document.getElementById("logout").addEventListener("click",()=>{
+  sessionStorage.removeItem("mn_admin_logged"); // Clear login state
+  appEl.classList.remove("show");
+  loginEl.classList.remove("hide");
+  document.getElementById("l-u").value="";
+  document.getElementById("l-p").value="";
+  document.getElementById("login-err").classList.remove("show");
+});
+
+/* ── NAVIGATION ── */
+const pages={};document.querySelectorAll(".page").forEach(p=>pages[p.id.replace("page-","")]=p);
+
+function goTo(key){
+  Object.values(pages).forEach(p=>p.classList.remove("on"));
+  document.querySelectorAll(".sb-link").forEach(a=>a.classList.remove("on"));
+  const pg=pages[key];if(!pg)return;
+  pg.classList.add("on");
+  const lnk=document.querySelector(`.sb-link[data-pg="${key}"]`);
+  if(lnk)lnk.classList.add("on");
+  
+  // Set title dynamically, handle Edit state
+  let title = key.charAt(0).toUpperCase()+key.slice(1);
+  if(key === "add" && editingId) title = "Edit Design";
+  document.getElementById("pg-title").textContent = title;
+  
+  if(key==="overview")refreshOverview();
+  if(key==="portfolio")refreshPortfolio();
+  if(window.innerWidth<=768)document.getElementById("sb").classList.remove("open");
+}
+
+document.querySelectorAll("[data-pg]").forEach(el=>{
+  el.addEventListener("click",e=>{
+    e.preventDefault();
+    const target = el.getAttribute("data-pg");
+    if(target === "add") clearForm(); // Ensure clean form if clicked from nav
+    goTo(target);
+  });
+});
+
+/* ── SIDEBAR TOGGLE ── */
+const sb=document.getElementById("sb"),tog=document.getElementById("sb-tog"),tb=document.getElementById("tb"),mainC=document.getElementById("main-c");
+let sbOpen=true;
+tog.addEventListener("click",()=>{
+  if(window.innerWidth<=768){sb.classList.toggle("open");}
+  else{
+    sbOpen=!sbOpen;
+    sb.classList.toggle("closed",!sbOpen);
+    tb.classList.toggle("full",!sbOpen);
+    mainC.classList.toggle("full",!sbOpen);
+  }
+});
+
+/* ── TOAST ── */
+function toast(msg,type="ok"){
+  const t=document.createElement("div");
+  t.className="ti "+type;
+  t.textContent=(type==="ok"?"✅ ":"❌ ")+msg;
+  document.getElementById("toast").appendChild(t);
+  setTimeout(()=>t.remove(),3200);
+}
+
+/* ── CARD RENDERER (Updated with Edit Button) ── */
+function makeCard(item,showActions=true){
+  const label=CATS[item.cat]||item.cat;
+  const art=document.createElement("article");
+  art.className="pi";
+  art.innerHTML=`
+    <div class="pi-thumb">
+      <img src="${esc(item.img)}" alt="${esc(item.name)}" loading="lazy" width="300" height="300"/>
+      ${showActions?`
+      <div class="pi-over">
+        <div class="btn-group">
+          <button class="edit-btn" data-id="${esc(item.id)}">✏️ Edit</button>
+          <button class="del-btn" data-id="${esc(item.id)}">🗑 Del</button>
+        </div>
+      </div>`:""}
+    </div>
+    <div class="pi-meta">
+      <span class="pi-cat">${esc(label)}</span>
+      <div class="pi-name">${esc(item.name)}</div>
+    </div>`;
+    
+  if(showActions){
+    art.querySelector(".del-btn").addEventListener("click",()=>confirmDel(item.id,item.name));
+    art.querySelector(".edit-btn").addEventListener("click",()=>startEdit(item.id));
+  }
+  return art;
+}
+
+function showEmpty(container,msg="No designs yet"){
+  container.innerHTML=`<div class="empty"><div class="empty-ico">🎨</div><h3>${msg}</h3><p>Add designs using the Add Design tab.</p></div>`;
+}
+
+/* ── OVERVIEW ── */
+function refreshOverview(){
+  const data=getData();
+  document.getElementById("cnt-total").textContent=data.length;
+  const cats=new Set(data.map(d=>d.cat));
+  document.getElementById("cnt-cats").textContent=cats.size;
+
+  const rg=document.getElementById("recent-grid");rg.innerHTML="";
+  const recent=[...data].reverse().slice(0,6);
+  if(recent.length===0)showEmpty(rg,"No designs added yet");
+  else recent.forEach(i=>rg.appendChild(makeCard(i, true)));
+
+  const cb=document.getElementById("cat-breakdown");cb.innerHTML="";
+  const counts={};data.forEach(d=>{counts[d.cat]=(counts[d.cat]||0)+1;});
+  Object.entries(counts).forEach(([cat,n])=>{
+    const div=document.createElement("div");
+    div.style.cssText="background:var(--s1);border:1px solid var(--ln);border-radius:var(--r3);padding:14px 16px;display:flex;align-items:center;gap:12px;";
+    div.innerHTML=`<span style="font-size:22px;">${CATICONS[cat]||"🎨"}</span><div><div style="font-size:13px;font-weight:700;">${CATS[cat]||cat}</div><div style="font-size:11px;color:var(--t4);">${n} design${n!==1?"s":""}</div></div><div style="margin-left:auto;font-family:'Playfair Display',serif;font-size:22px;font-weight:900;background:var(--gw);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">${n}</div>`;
+    cb.appendChild(div);
+  });
+}
+
+/* ── PORTFOLIO PAGE ── */
+function refreshPortfolio(){
+  const data=getData();
+  const filter=document.getElementById("cat-filter").value;
+  const list=filter?data.filter(d=>d.cat===filter):data;
+  document.getElementById("port-count").textContent=`${list.length} design${list.length!==1?"s":""}`;
+  const ag=document.getElementById("all-grid");ag.innerHTML="";
+  if(list.length===0)showEmpty(ag,"No designs in this category");
+  else list.forEach(i=>ag.appendChild(makeCard(i, true)));
+}
+document.getElementById("cat-filter").addEventListener("change",refreshPortfolio);
+
+/* ── ADD & EDIT DESIGN ── */
+const imgInput=document.getElementById("img-input"),prevImg=document.getElementById("preview-img"),dropPrev=document.getElementById("drop-preview"),dropZone=document.getElementById("drop-zone");
+
+imgInput.addEventListener("change",()=>{
+  const f=imgInput.files[0];if(!f)return;
+  const r=new FileReader();
+  r.onload=e=>{prevImg.src=e.target.result;dropPrev.style.display="block";};
+  r.readAsDataURL(f);
+});
+
+dropZone.addEventListener("dragover",e=>{e.preventDefault();dropZone.classList.add("drag");});
+dropZone.addEventListener("dragleave",()=>dropZone.classList.remove("drag"));
+dropZone.addEventListener("drop",e=>{
+  e.preventDefault();dropZone.classList.remove("drag");
+  const f=e.dataTransfer.files[0];
+  if(f&&f.type.startsWith("image/")){
+    const dt=new DataTransfer();dt.items.add(f);imgInput.files=dt.files;
+    imgInput.dispatchEvent(new Event("change"));
+  }
+});
+
+// Start Editing Function
+function startEdit(id) {
+  const data = getData();
+  const item = data.find(d => d.id === id);
+  if(!item) return;
+  
+  editingId = id; // Set global state
+  
+  // Populate form
+  document.getElementById("des-name").value = item.name || "";
+  document.getElementById("des-cat").value = item.cat || "";
+  document.getElementById("des-desc").value = item.desc || "";
+  document.getElementById("des-client").value = item.client || "";
+  document.getElementById("des-feat").value = item.featured || "no";
+  
+  if (item.img) {
+    prevImg.src = item.img;
+    dropPrev.style.display = "block";
+  }
+
+  // Update UI texts for Edit mode
+  document.getElementById("add-form-title").textContent = "Edit Design";
+  document.getElementById("save-btn").innerHTML = "✦ Update Design";
+  
+  goTo("add");
+}
+
+document.getElementById("save-btn").addEventListener("click",()=>{
+  const name=document.getElementById("des-name").value.trim();
+  const cat=document.getElementById("des-cat").value;
+  const desc=document.getElementById("des-desc").value.trim();
+  const client=document.getElementById("des-client").value.trim();
+  const feat=document.getElementById("des-feat").value;
+  const imgSrc=prevImg.src;
+
+  if(!name){toast("Please enter a design name","err");document.getElementById("des-name").focus();return;}
+  if(!cat){toast("Please select a category","err");document.getElementById("des-cat").focus();return;}
+  if(!imgSrc||!imgSrc.startsWith("data:") && !imgSrc.includes("mn-imgs/")){toast("Please upload an image","err");return;}
+
+  const data=getData();
+
+  if(editingId) {
+    // Update existing item
+    const idx = data.findIndex(d => d.id === editingId);
+    if(idx !== -1) {
+      data[idx].name = name;
+      data[idx].cat = cat;
+      data[idx].desc = desc;
+      data[idx].client = client;
+      data[idx].featured = feat;
+      data[idx].img = imgSrc;
+      save(data);
+      toast(`"${name}" updated successfully!`);
+    }
+  } else {
+    // Add new item
+    const item={id:"d"+Date.now(),name,cat,desc,client,featured:feat,img:imgSrc,date:new Date().toISOString().split("T")[0]};
+    data.push(item);
+    save(data);
+    toast(`"${name}" added to portfolio!`);
+  }
+
+  clearForm();
+  goTo("portfolio");
+});
+
+document.getElementById("clear-btn").addEventListener("click", clearForm);
+
+function clearForm(){
+  editingId = null; // Reset edit state
+  
+  ["des-name","des-desc","des-client"].forEach(id=>document.getElementById(id).value="");
+  document.getElementById("des-cat").value="";
+  document.getElementById("des-feat").value="no";
+  imgInput.value="";prevImg.src="";dropPrev.style.display="none";
+
+  // Reset UI texts
+  document.getElementById("add-form-title").textContent = "Add New Design";
+  document.getElementById("save-btn").innerHTML = "✦ Save to Portfolio";
+  
+  // Navigate back to overview if cancel was clicked
+  if(document.getElementById("page-add").classList.contains("on")) {
+    // optional: goTo("portfolio");
+  }
+}
+
+/* ── DELETE ── */
+const modal=document.getElementById("modal");
+let delId=null;
+function confirmDel(id,name){
+  delId=id;
+  document.getElementById("modal-title").textContent=`Delete "${name}"?`;
+  modal.classList.add("show");
+  document.getElementById("modal-yes").focus();
+}
+document.getElementById("modal-no").addEventListener("click",()=>{modal.classList.remove("show");delId=null;});
+document.getElementById("modal-yes").addEventListener("click",()=>{
+  if(!delId)return;
+  save(getData().filter(d=>d.id!==delId));
+  modal.classList.remove("show");
+  toast("Design deleted.");
+  delId=null;
+  refreshPortfolio();refreshOverview();
+});
+modal.addEventListener("click",e=>{if(e.target===modal)modal.classList.remove("show");});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")modal.classList.remove("show");});
+
+/* ── INIT ── */
+function refreshAll(){refreshOverview();refreshPortfolio();}
+</script>
+</body>
+</html>
