@@ -1701,48 +1701,47 @@
             <!-- Form -->
             <div class="contact-form-card reveal d2">
               <h3 class="form-heading">Send a <em>Message</em></h3>
-            <form action="https://api.web3forms.com/submit" method="POST">
-  <input type="hidden" name="access_key" value="98c4ac0a-c63c-40b0-8b5b-21e9d6be18ba">
-  <input type="text" name="name" required>
-  <input type="email" name="email" required>
-  <textarea name="message" required></textarea>
-  <button type="submit">Submit Form</button>
-</form>
+           <form id="contact-form" action="https://api.web3forms.com/submit" method="POST" class="clean-form">
+                <!-- مفتاح الربط الخاص بك من Web3Forms -->
+                <input type="hidden" name="access_key" value="98c4ac0a-c63c-40b0-8b5b-21e9d6be18ba">
+                <!-- إرسال المستخدم لصفحة نجاح الإرسال (اختياري، اتركه لو عاوز يفضل في نفس الصفحة) -->
+                <!-- <input type="hidden" name="redirect" value="https://mennation.design/success.html"> -->
+
                 <div class="form-row">
                   <div class="form-group">
                     <label class="form-label" for="f-first">First Name</label>
-                    <input class="form-input" type="text" id="f-first"
-                           autocomplete="given-name" placeholder="Ahmad" aria-required="true"/>
+                    <input class="form-input" type="text" id="f-first" name="first_name"
+                           autocomplete="given-name" placeholder="Ahmad" required/>
                   </div>
                   <div class="form-group">
                     <label class="form-label" for="f-last">Last Name</label>
-                    <input class="form-input" type="text" id="f-last"
-                           autocomplete="family-name" placeholder="Hassan"/>
+                    <input class="form-input" type="text" id="f-last" name="last_name"
+                           autocomplete="family-name" placeholder="Hassan" required/>
                   </div>
                 </div>
                 <div class="form-group">
                   <label class="form-label" for="f-phone">WhatsApp / Phone</label>
-                  <input class="form-input" type="tel" id="f-phone"
-                         autocomplete="tel" placeholder="+20 1xx xxx xxxx" aria-required="true"/>
+                  <input class="form-input" type="tel" id="f-phone" name="phone"
+                         autocomplete="tel" placeholder="+20 1xx xxx xxxx" required/>
                 </div>
                 <div class="form-group">
                   <label class="form-label" for="f-service">Service Needed</label>
-                  <select class="form-select" id="f-service" aria-required="true">
-                    <option value="">— Select a service —</option>
-                    <option value="brand">Brand Identity</option>
-                    <option value="menu">Menu Design</option>
-                    <option value="invite">Invitations</option>
-                    <option value="package">Logo + Sticker Package</option>
-                    <option value="social">Social Media Design</option>
-                    <option value="motion">Motion Graphics</option>
-                    <option value="other">Other</option>
+                  <select class="form-select" id="f-service" name="service" required>
+                    <option value="" disabled selected>— Select a service —</option>
+                    <option value="Brand Identity">Brand Identity</option>
+                    <option value="Menu Design">Menu Design</option>
+                    <option value="Invitations">Invitations</option>
+                    <option value="Logo + Sticker Package">Logo + Sticker Package</option>
+                    <option value="Social Media Design">Social Media Design</option>
+                    <option value="Motion Graphics">Motion Graphics</option>
+                    <option value="Other">Other</option>
                   </select>
                 </div>
                 <div class="form-group">
                   <label class="form-label" for="f-msg">Project Details</label>
-                  <textarea class="form-textarea" id="f-msg"
+                  <textarea class="form-textarea" id="f-msg" name="message"
                             placeholder="Tell us about your project, style, and timeline…"
-                            aria-required="true"></textarea>
+                            required></textarea>
                 </div>
                 <button type="submit" class="form-submit">Send Message →</button>
                 <div id="form-feedback" role="status" aria-live="polite" class="sr-only"></div>
